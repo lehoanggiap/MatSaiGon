@@ -1,0 +1,19 @@
+Ngày 3/2/2022
+- Gặp bug đó là khi hover vào thẻ header__navbar-item thì hiện ra cái subnavbar. Nhưng không như thường lệ, không
+set thuộc tính display none cho nó để khi hover vào thì chuyển thành display none. Để thay thế display thì phải thêm
+visibility vào vì nếu chỉ để opacity thì khi người dùng chỉ cần di chuột vào th subnavbar thì nó hiện ra luôn chứ chưa 
+cần di chuột vào th header__navbar-item. Tuy nhiên, khi làm vậy thì nó phát sinh một vấn đề. Cụ thể, khi th subnavbar hiện
+lên và chúng ta di chuột vào item của nó, thì sau khi hover xong nó tạo ra một cái line trùng với cái màu của cái màu khi hover 
+vào. Phán đoán bug: thuộc tính position: absolute
+
+
+Ngày 5/2/2022
+- Về overflow, nếu khi không mà xét overflow: scroll thì nó sẽ tự hiện ra một thanh dọc bên phải dù chỉ nhích 1 tí. Vì thế nên cân
+nhắc set overflow phù hợp cho trục x hoặc y. Ngoài ra bên ngoài có thêm thanh scroll vì thẻ body mặc định có overflow
+
+- Overflow nếu set hidden thì phần tử đó sẽ k thể xem được nữa. Vì vậy nếu vẫn muốn thao tác trên thẻ cha như slider và thấy
+phần tử con thì nên set overflow:hidden cho thẻ cha của thẻ cha. Như vậy thì thẻ con của thẻ cha vẫn còn nhìn thấy được, và thẻ
+cha có thể thay đổi giao diện.
+
+- Khi set animation hoặc transition nếu nó k chạy thường là so set điểm đầu điểm cuối chưa đúng, đôi khi có thể thiếu điểm bắt đầu hoặc kết
+thúc. 

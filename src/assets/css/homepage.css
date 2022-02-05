@@ -1,0 +1,151 @@
+/*App container*/
+.app__container{
+    margin-top: var(--header-height);
+    overflow: hidden;
+}
+
+/*Slider*/
+.slider-wrapper{
+    position: relative;
+    display: flex;
+}
+
+.slider-wrapper__image-link{
+    width: 100%;
+    padding-top: 43%;
+    flex-shrink: 0;
+    background: url(../img/banner/banner-4.jpg) top center / cover no-repeat;
+}
+
+.slider-wrapper__image-link:hover ~ .slider-btn .slider-btn__icon{
+    color: var(--primary-color);
+}
+
+/*Slider button*/
+.slider-btn{
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all ease-out 0.3s;
+}
+
+.slider-btn:hover{
+    background-color: var(--primary-color);
+    transform: scale(1.1) translateY(-50%);   /*Vì sao khi scale nó làm thay đổi cái position vì trước đó đã set transform: 50%. Do đó,
+                             khi ghi transform: scale(1.1) nó sẽ ghi đè, làm mất position trước đó đã transform*/
+
+}
+
+.slider-btn:hover .slider-btn__icon{
+    color: var(--white-color);
+}
+
+.slider-btn--left{
+    left: 20px;
+}
+
+.slider-btn--right{
+    right: 10px;
+}
+
+.slider-btn__icon{
+    color: transparent;
+    line-height: 0;
+    font-size: 1.4rem;
+    transition: all ease-out 0.3s;
+}
+
+
+/*Service list*/
+.service-container{
+    position: absolute;
+    top: 138px;
+    right: 138px;
+    background-color: transparent;
+}
+
+.service-list{
+    list-style: none;
+    background-color: transparent;
+}
+
+.service-item{
+    position: relative;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 0;
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
+
+.service-item:nth-child(4){
+    background-color: #ffcb1f;
+}
+
+
+
+.service-item__link{
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white-color);
+    padding: 15px 30px 15px 20px;
+    transition: all ease-out 0.3s;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.service-name{
+    background-color: transparent;
+    text-align: left;
+    flex: 1;
+    padding: 0 12px;
+    transition: all ease 0.5s;
+    font-weight: 500;
+}
+
+.service-item:nth-child(4) .service-name{
+    color: var(--primary-color);
+}
+
+
+.service-img{
+    width: 40px;
+    background-color: transparent;
+    margin-right: 18px;
+}
+
+.service-icon{
+    line-height: 0;
+}
+
+.service-item::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #4bc560;
+    z-index: 0;
+    transition: all ease-out 0.5s;
+    border-radius: 3px;
+}
+
+.service-item:hover::after{
+    left: 0;
+    width: 100%;
+}
+
+.service-item:nth-child(4):hover .service-name{
+    color: var(--white-color);
+}
+
+
+
+
