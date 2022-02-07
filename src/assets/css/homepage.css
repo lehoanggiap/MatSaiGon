@@ -146,6 +146,97 @@
     color: var(--white-color);
 }
 
+/*Loading Circle*/
+.loading-circle-container{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    display: none;
+}
+
+.center-circle{
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    opacity: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    animation: centerCircleFadeIn forwards 0.4s,
+    centerCircleFadeOut forwards 1s 4.2s;
+}
+
+@keyframes centerCircleFadeIn {
+    to{
+        opacity: 0.2;
+    }
+}
+
+@keyframes centerCircleFadeOut {
+    to{
+        opacity: 0;
+    }
+}
+
+.left-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.right-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.half-circle{
+    position: absolute;
+    top: 0;
+    width: 200%;
+    height: 100%;
+    border: 2px solid;
+    border-color: var(--circle-border-color) var(--circle-border-color) transparent transparent;
+    border-radius: 50%;
+    transform: rotate(calc(var(--degStartCoe)*45deg));
+    background-color: transparent;
+    animation: loadingForwards 2s linear calc(calc((var(--delayTimeStartCoe))*0.5s) - 0.3s)  forwards,
+    loadingBackwards 0.2s linear calc(calc((var(--delayTimeEndCoe))*0.1s) + 4.1s)  forwards; 
+}
+
+@keyframes loadingForwards {
+    to{
+        transform: rotate(calc(180deg + calc(var(--degStartCoe)*45deg)));;
+    }
+}
+
+@keyframes loadingBackwards {
+    to{
+        transform: rotate(calc(var(--degStartCoe)*45deg));
+    }
+}
+
+.half-circle--right{
+    left: 0;
+}
+
+.half-circle--left{
+   right: 0;
+}
+
+
+
+
 
 
 

@@ -170,8 +170,35 @@
                         </li>
                     </ul>
                 </div>
-            </div>
 
+                <div class="bottom-slidebuttons">
+                    <a href="#" class="bottom-slidebutton bottom-slidebutton--active"></a>
+                    <a href="#" class="bottom-slidebutton"></a>
+                    <a href="#" class="bottom-slidebutton"></a>
+                    <a href="#" class="bottom-slidebutton"></a>
+                    <a href="#" class="bottom-slidebutton"></a>
+                    <a href="#" class="bottom-slidebutton"></a>
+                </div>
+
+                <!--Ý tưởng làm loading circle: Sử dụng hai nửa vòng tròn,
+                nằm đè trên 1 vòng tròn đầy. Mỗi nửa vòng tròn nằm trong một container 
+                nằm ngược bên với nó. Tạo animation cho nửa vòng tròn là rotate, mỗi nửa vòng
+                tròn sẽ quay 180deg và có tg delay tương ứng với duration của vòng tròn trước.
+                Nửa vòng tròn chỉ hiện khi nó quay tới chỗ container chứa nó vì phần tử này set overflow 
+                = hidden. -->
+                <div class="loading-circle-container" id="loading-circle">
+                    <div class="center-circle"></div>
+                    <div class="left-container">
+                        <div class="half-circle half-circle--right" style="--degStartCoe: 1; --delayTimeStartCoe: 5; --delayTimeEndCoe: 1; "></div>
+                    </div>
+                    
+                    <div class="right-container">
+                        <div class="half-circle half-circle--left" style="--degStartCoe: 5 ; --delayTimeStartCoe: 1; --delayTimeEndCoe: 3"></div>
+                    </div> 
+                </div>
+                <!--Coe: Coefficient: Hệ số-->
+                <!--delayCoe của left thấp hơn vì nó là vòng tròn rotate trước-->
+            </div>
 
         </div>
 
@@ -181,6 +208,20 @@
 
     </div>
 
+    <script>
+        var loadingCircle = document.getElementById("loading-circle");
+        loadingCircle.style.display = "block";
+        setTimeout(function() {
+                loadingCircle.style.display = "none";
+        },5000);
+        
+        setInterval(function() {
+            loadingCircle.style.display = "block";
+            setTimeout(function() {
+                loadingCircle.style.display = "none";
+            }, 5000);
+        }, 5200);
+    </script>
     
     
 </body>

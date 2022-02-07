@@ -1,8 +1,9 @@
 :root{
-    --primary-color: #3fa34d;
+    --primary-color: #00ac4f;
     --white-color: #fff;
     --black-color: #000;
     --header-height: 100px;
+    --circle-border-color: #d4f4dc;
 }
 
 *{
@@ -57,7 +58,7 @@ html{
     right: 0;
     height: var(--header-height);
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 10;
   
 }
 
@@ -185,6 +186,44 @@ html{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+/*Bottom slide buttons*/
+.bottom-slidebuttons{
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+}
+
+.bottom-slidebutton{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    border: 2px solid var(--circle-border-color);
+    background-color: transparent;
+    transition: all ease-out 0.5s;
+}
+
+.bottom-slidebutton + .bottom-slidebutton{
+    margin-left: 10px;
+}
+
+.bottom-slidebutton--active{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.bottom-slidebutton:hover {
+    border-color: var(--white-color);
+    transform: scale(1.05);
+}
+
+.bottom-slidebutton:hover.bottom-slidebutton--active{
+    background-color: var(--white-color);
+}
+
 
 
 
