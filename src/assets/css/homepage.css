@@ -1,3 +1,18 @@
+/*Messenger*/
+.messenger{
+    position: fixed;
+    z-index: 20;
+    bottom: 32px;
+    right: 32px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    background-color: #0A7CFF;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
 /*App container*/
 .app__container{
     position: relative;
@@ -277,6 +292,63 @@
     background-color: var(--content-bgr-color);
     padding-top: 64px;
 }
+
+.short-introduction{
+    position: relative;
+}
+
+.short-introduction__video-container{
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 30%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 100px;
+}
+
+.short-introduction__video-bgr-animation{
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    animation-name: scaleBigAndFadeAway;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scaleBigAndFadeAway {
+    to{
+       opacity: 0;
+       transform: translate(-50%, -50%) scale(2.5);
+    }
+}
+
+.short-introduction__link-video{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 90px;
+    height: 90px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 3.4rem;
+    color: var(--primary-color);
+}
+
 .main-content__intro .short-introduction{
     padding: 64px 0;
     display: flex;
