@@ -269,6 +269,7 @@
     font-size: 1.5rem;
     color: #6A6969;
     padding: 0 8px;
+    user-select: none;
 }
 
 /*short-introduction*/
@@ -289,6 +290,7 @@
 .main-content__intro .short-introduction__content{
     text-align: justify;
     padding: 0 40px;
+    user-select: none;
 }
 .main-content__intro .short-introduction__heading{
     text-transform: uppercase;
@@ -367,6 +369,7 @@
     -webkit-line-clamp: 3;
     user-select: none;
     transition: all ease-in 0.2s;
+    user-select: none;
 }
 
 .common-service__item:hover .common-service__des{
@@ -507,13 +510,17 @@
     font-weight: 600;
     color: var(--black-color);
     margin-top: 30px;
-    
+    transition: all ease 0.3s;
+}
+
+.doctors-name:hover{
+    color: var(--primary-color);
 }
 
 .doctors-work-place{
     font-size: 1.6rem;
     margin-top: 24px;
-   
+    user-select: none;
 }
 
 .other-doctors{
@@ -575,6 +582,7 @@
     color: var(--primary-color);
     font-size: 3.8rem;
     line-height: 1.4;
+    user-select: none;
 }
 
 .consultant-booking-content__text{
@@ -583,6 +591,7 @@
     line-height: 1.5;
     color: var(--black-color);
     font-weight: 500;
+    user-select: none;
 }
 
 .consultant-booking-content__btns{
@@ -656,6 +665,7 @@
     justify-content: center;
     flex-direction: column;
     padding-right: 48px;
+    user-select: none;
 }
 
 .patient-shares__name{
@@ -725,9 +735,11 @@
     font-size: 5rem;
     font-weight: bold;
     margin-top: 42px;
+    user-select: none;
 }
 
 .achievement__feature{
+    user-select: none;
     font-size: 1.6rem;
     color: var(--content-text-color);
     margin-top: 24px;
@@ -753,24 +765,43 @@
 
 /*Main content footer*/
 .main-content__footer{
+    padding-bottom: 60px;
     background-color: var(--content-bgr-color);
 }
+
+/*news part*/
 
 .news-list{
 
 }
 
 .news-item{
+    width: 100%;
     border-radius: 3px;
     background-color: var(--white-color);
+    overflow: hidden;
+    transition: all ease 0.5s;
+}
+
+.news-item:hover{
+    box-shadow: 0px 2px 30px 0px rgb(208 208 208 / 75%);
+}
+
+.news-item:hover .news-img{
+    transform: scale(1.1);
+}
+
+.news-img-container{
+    height: 250px;
     overflow: hidden;
 }
 
 .news-img{
     width: 100%;
-    height: 250px;
+    height: 100%;
     object-position: top center;
     object-fit: cover;
+    transition: all ease 0.5s;
 }
 
 .news-content{
@@ -783,26 +814,30 @@
     color: var(--black-color);
     font-size: 2.4rem;
     font-weight: bold;
+    line-height: 3.2rem;
     text-align: justify;
     display: -webkit-box;
+    max-height: 6.4rem;
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    line-height: 1.4;
+    
 }
 
 .news-des{
     margin-top: 20px;
     color: var(--content-text-color);
     font-size: 1.6rem;
+    text-align: justify;
     display: block;
     display: -webkit-box;
+    max-height: 4.4rem;
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    line-height: 1.4;
-    padding-bottom: 100px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    line-height: 2.2rem;
+    margin-bottom: 60px;
+    user-select: none;
 }
 
 .news-btn-watch{
@@ -814,10 +849,50 @@
     color: var(--primary-color);
     font-weight: 500;
     padding: 24px 0;
-
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .news-btn-watch i{
     margin-left: 10px;
     line-height: 0;
+    transition: all ease 0.5s;
+}
+
+.news-btn-watch:hover i{
+    transform: translateX(5px);
+}
+
+/*Video list*/
+
+.videos-item{
+    height: 220px;
+}
+.video-link{
+    width: 100%;
+    height: 100%;
+}
+
+.image-library-container{
+    position: relative;
+    display: block;
+    cursor: pointer;
+    height: 100%;
+    background: url(../img/content-footer-img.jpg) top center / cover no-repeat;
+}
+
+.image-library-container__btn{
+    position: absolute;
+    z-index: 2;
+    bottom:0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    max-height: 44px;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    padding: 12px 0;
+
 }
