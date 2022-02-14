@@ -1,7 +1,7 @@
 /*Messenger*/
 .messenger{
     position: fixed;
-    z-index: 20;
+    z-index: 90;
     bottom: 32px;
     right: 32px;
     width: 60px;
@@ -800,6 +800,7 @@
     display: block;
     color: var(--primary-color);
     margin: 0 auto;
+    filter: hue-rotate(271deg);
 }
 
 .achievement__number-data{

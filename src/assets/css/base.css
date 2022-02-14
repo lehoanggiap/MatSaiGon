@@ -442,6 +442,203 @@ html{
 }
 
 
+/*Modal*/
+.modal{
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
 
+.modal__overlay{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal__body{
+    width: 100%;
+    height: 100%;
+}
+
+.modal__booking-form{
+    width: 980px;
+    height: 100%;
+    background-color: var(--white-color);
+    margin: 0 auto;
+    padding: 36px 40px;
+    overflow-y: scroll;
+    display: none;
+}
+
+.modal__consultant-booking-form{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: unset;
+    overflow: unset;
+}
+
+/* .modal__booking-form--active{
+    display: block;
+} */
+
+.modal__notes{
+
+}
+
+.notes__heading{
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 48px;
+}
+
+.notes__list{
+    padding: 0 20px;
+}
+
+.notes__item{
+    font-size: 1.6rem;
+    color: var(--content-text-color);
+    font-weight: 400;
+    line-height: 2.6rem;
+    margin-bottom: 28px;
+    text-align: justify;
+    
+}
+
+.notes__item::marker{
+    margin: auto;
+}
+
+.modal__consultant-booking-form .modal__form-container{
+    padding: 0 0 0 56px;
+}
+
+.modal__form-container{
+    position: relative;
+    padding: 0 0 48px 56px;
+}
+
+.modal__form-container i[class*="ti-close"]{
+    display: block;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.form__heading{
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 18px 0;
+}
+
+.modal__form{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.booking-form__slt-container,
+.form__name-field,
+.form__phone-field,
+.form__email-field,
+.form__des-field,
+.booking-form__datetime-group,
+.booking-form__slt-group{
+    margin-bottom: 10px;
+}
+
+/* .booking-form__datetime-group{
+   width: 100%;
+} */
+
+.booking-form__slt-group input[id*="other"]{
+    margin-left: 10px;
+}
+
+.booking-form__label-radio-btn{
+    color: var(--content-text-color);
+}
+
+.booking-form__group-slt-label,
+.form__name-label,
+.form__phone-label,
+.form__email-label,
+.booking-form__date-label,
+.booking-form__time-label,
+.form__des-label,
+.booking-form__time-label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form__name-input,
+.form__phone-input,
+.form__email-input,
+.booking-form__date-input,
+.booking-form__time-input,
+.form__des-input,
+.booking-form__slt-list{
+    width: 100%;
+    min-height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    outline: none;
+    padding: 8px 12px;
+    font-size: 1.6rem;
+}
+
+.booking-form__slt-list{
+    font-size: 1.2rem;
+}
+
+.modal__btn{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: unset;
+    padding: 2px 24px;
+}
+
+.modal__btn i{
+    margin-left: 10px;
+}
+
+/*Modal video*/
+.modal__video-container{
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.modal__video-container i {
+    display: block;
+    text-align: right;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.5;
+    transition: all ease-in 0.1s; 
+    cursor: pointer;
+}
+
+.modal__video-container i:hover{
+    opacity: 1;
+}
 
 
