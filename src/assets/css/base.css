@@ -68,19 +68,35 @@ html{
 /*Header*/
 
 .header{
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
-    height: var(--header-height);
+    /* height: var(--header-height); */
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
     z-index: 10;
     background-color: var(--white-color);
-  
+    transition: ease-in 0.5s;
 }
 
+.header.fixed {
+    position: fixed;
+    animation: headerFadeIn 0.5s ease-out
+}
+
+@keyframes headerFadeIn {
+    from {
+        opacity: 0.6;
+        transform: translateY(-100px)
+    }to{
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+
 .header__logo-link{
-    display: block;
+    display: inline-block;
     line-height: 0;
     text-decoration: none;
     position: relative;
@@ -93,18 +109,28 @@ html{
     width: 190px;
 }
 
+.header__menu-icon{
+    display: none;
+}
+
 .header__navbar-list{
     list-style: none;
     margin-left: auto;
     text-align: right;
     height: 100%;
-    
+    transition: all ease-in 0.3s;
 }
 
 .header__navbar-item{
     position: relative;
     display: inline-block;
     cursor: pointer;
+    background-color: var(--white-color);
+}
+
+.header__navbar-item .ti-plus,
+.header__navbar-item .ti-minus{
+    display: none
 }
 
 .header__navbar-item::after{
@@ -155,6 +181,7 @@ html{
 
 .header__sub-navbar{
    position: absolute;
+   z-index: 10;
    top: var(--header-height);
    left: -16px;
    list-style: none;
@@ -163,9 +190,10 @@ html{
    visibility: hidden;
    opacity: 0;
    transform: translateY(15px);
-   transition: all ease 0.2s;
+   transition: all ease 0.3s;
    will-change: opacity, transform;
    background-color: var(--white-color);
+   box-shadow: 0 0 2px rgb(0 0 0 / 10%);
 }
 
 .header__navbar-item:hover .header__sub-navbar{
@@ -231,7 +259,7 @@ html{
 }
 
 .bottom-slidebutton--active{
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .bottom-slidebutton:hover {
@@ -245,6 +273,7 @@ html{
 
 /*Content section*/
 .content-section{
+    position: relative;
     padding: 100px 0 50px;
 }
 

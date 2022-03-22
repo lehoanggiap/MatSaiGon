@@ -1,0 +1,126 @@
+/*Mobile and tablet*/
+@media only screen and (max-width: 64em){
+    .header{
+       border-bottom: 2px solid var(--primary-color)
+    }
+
+    .header__container{
+        width: 100%;
+    }
+
+    .header__logo-block{
+        display: flex !important;
+        flex-basis: 100% !important;
+        max-width: 100% !important;
+        padding: 8px 12px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header__logo-link{
+        /* flex: 1; */
+    }
+
+    .header__image{
+        width: 100px;
+    }
+
+    .header__menu-icon{
+        cursor: pointer;
+        font-size: 2.2rem;
+        display: inline-block;
+        color: var(--primary-color);
+    }
+
+    .header__navbar-block{
+        flex-basis: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .header__navbar-list{
+        display: none;
+        height: 0;
+    }
+
+    .header__logo-block .ti-close{
+        display: none;
+    }
+    
+    .header__navbar-list{
+        overflow-y: scroll;
+        text-align: left;
+    }
+
+    .header__navbar-item::after{
+        width: 0;
+    }
+
+    .header__navbar-item .ti-plus{
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--primary-color)
+        
+    }
+
+    .header__navbar-link{
+        display: flex;
+        padding: 12px 24px;
+        line-height: unset;
+        border-top: 1px solid #ccc;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header__navbar-item:hover .header__navbar-link{
+        color: var(--primary-color);
+        animation: unset
+    }
+
+    .header__sub-navbar{
+        display: none;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 0;
+        padding: 0;
+        border-top: unset;
+        transform: unset;
+        box-shadow: unset;
+        visibility: unset;
+        opacity: unset;
+        overflow-y: hidden;
+    }
+
+    .header__sub-navbar-item{
+        border-top: 1px solid #ccc;
+        padding: unset;
+
+    }
+    .header__sub-navbar-link{
+        padding: 12px 40px;
+    }
+
+    .header__sub-navbar-link:hover{
+        background: unset;
+        color: var(--primary-color);
+    }
+
+    .btn.header__btn{
+        display: none;
+    }
+    .header__navbar-item{
+        display: block;
+    }
+}
+
+/*Tablet*/
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em){
+
+}
+
+/*Mobile*/
+@media only screen and (max-width: 46.1875em) {
+
+}
+

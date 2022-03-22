@@ -16,7 +16,6 @@
 /*App container*/
 .app__container{
     position: relative;
-    margin-top: var(--header-height);
     overflow: hidden;
 }
 
@@ -28,19 +27,24 @@
 /*Slider*/
 .slider-wrapper{
     position: relative;
+    overflow: hidden;
+}
+    
+.slider{
     display: flex;
+    transition: ease-in 0.1s;
 }
 
 .slider-wrapper__image-link{
     width: 100%;
     padding-top: 43%;
     flex-shrink: 0;
-    background: url(../img/banner/banner-4.jpg) top center / cover no-repeat;
 }
 
 .slider-wrapper__image-link:hover ~ .slider-btn .slider-btn__icon{
     color: var(--primary-color);
 }
+
 
 /*Slider button*/
 .slider-btn{
@@ -49,6 +53,21 @@
     background-color: transparent;
     cursor: pointer;
     transition: all ease-out 0.3s;
+}
+
+.slider-btn:hover ~ .layer-right{
+    display: block;
+}
+
+.slider-btn::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius:50%;
+    background-color:transparent;
 }
 
 .slider-btn:hover{
@@ -67,7 +86,7 @@
 }
 
 .slider-btn--right{
-    right: 10px;
+    right: 20px;
 }
 
 .slider-btn__icon{
@@ -175,7 +194,7 @@
     width: 24px;
     height: 24px;
     background-color: transparent;
-    display: none;
+    display: block;
 }
 
 .center-circle{
@@ -389,6 +408,7 @@
 /*Common service*/
 .common-service__list{
     position: relative;
+    overflow: hidden;
 }
 
 
@@ -465,8 +485,8 @@
 /*Common service round button*/
 
 .common-service__round-btn{
-    top: 173.05px;
-    left: 8px;
+    top: calc(50% + 50px);
+    left: 0;
     background-color: var(--primary-color);
     transform: translate(-50%, -50%);
 }
@@ -478,7 +498,7 @@
 
 .common-service__round-btn--right{
     left: unset;
-    right: 8px;
+    right: 0;
     transform: unset;
     transform: translate(50%,-50%);
 }

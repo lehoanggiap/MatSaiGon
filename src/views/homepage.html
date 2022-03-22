@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mắt Sài Gòn</title>
+    <title>Bệnh viện Mắt Sài Gòn</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="../assets/css/grid.css">
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/homepage.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://www.matsaigon.com/wp-content/uploads/cropped-favicon-32x32.png" sizes="32x32" />
 </head>
 <body>
 
@@ -24,15 +26,17 @@
             </svg>
         </div>
         <header class="header">
-            <div class="grid wide">
+            <div class="grid wide header__container">
                 <div class="row">
-                    <div class="col l-2">
+                    <div class="col l-2 m-12 c-12 header__logo-block">
                         <a href="./homepage.html" class="header__logo-link">
                             <img src="../assets/img/main-logo.png" alt="" class="header__image">
                         </a>
+                        <i class="ti-menu header__menu-icon"></i>
+                        <i class="ti-close header__menu-icon"></i>
                     </div>
 
-                    <div class="col l-8">
+                    <div class="col l-8 m-12 c-12 header__navbar-block">
                         <nav class="header__navbar-list">
                             <li class="header__navbar-item">
                                 <a href="" class="header__navbar-link">Trang chủ</a>
@@ -135,15 +139,18 @@
         <div class="app__container">
             <img src="../assets/img/medical.jpg" class="layer-bgr-img">
             <div class="slider-wrapper">
-                <a href="" class="slider-wrapper__image-link"></a>
+
+                <div class="slider">
+
+                </div>
 
                 <a href="#" class="round-btn slider-btn slider-btn--left">
                     <i class="fas fa-chevron-left slider-btn__icon"></i>
                 </a>
+                
                 <a href="#" class="round-btn slider-btn slider-btn--right">
                     <i class="fas fa-chevron-right slider-btn__icon"></i>
                 </a>
-
 
                 <div class="service-container">
                     <ul class="service-list">
@@ -179,12 +186,12 @@
                 </div>
 
                 <div class="bottom-slidebuttons">
-                    <a href="#" class="bottom-slidebutton bottom-slidebutton--active"></a>
+                    <!-- <a href="#" class="bottom-slidebutton bottom-slidebutton--active"></a>
                     <a href="#" class="bottom-slidebutton"></a>
                     <a href="#" class="bottom-slidebutton"></a>
                     <a href="#" class="bottom-slidebutton"></a>
                     <a href="#" class="bottom-slidebutton"></a>
-                    <a href="#" class="bottom-slidebutton"></a>
+                    <a href="#" class="bottom-slidebutton"></a> -->
                 </div>
 
                 <!--Ý tưởng làm loading circle: Sử dụng hai nửa vòng tròn,
@@ -353,17 +360,13 @@
                                         </a>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="round-btn common-service__round-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </div>
 
-                                <div class="round-btn common-service__round-btn">
-                                    <i class="fas fa-chevron-left"></i>
-                                </div>
-
-                                <div class="round-btn common-service__round-btn common-service__round-btn--right">
-                                    <i class="fas fa-chevron-right"></i>
-                                </div>
-
-                                <!--Làm bằng js-->
-                                
+                            <div class="round-btn common-service__round-btn common-service__round-btn--right">
+                                <i class="fas fa-chevron-right"></i>
                             </div>
                         </div>
         
@@ -956,21 +959,10 @@
 
 
     </div>
+    <script type="module" src='../assets/js/constant/homepage.js'></script>
 
-    <script>
-        var loadingCircle = document.getElementById("loading-circle");
-        loadingCircle.style.display = "block";
-        setTimeout(function() {
-                loadingCircle.style.display = "none";
-        },5000);
-        
-        setInterval(function() {
-            loadingCircle.style.display = "block";
-            setTimeout(function() {
-                loadingCircle.style.display = "none";
-            }, 5000);
-        }, 5200);
-    </script>
+    <script type="module" src='../assets/js/homepage.js'>
+</script>
     
     
 </body>
