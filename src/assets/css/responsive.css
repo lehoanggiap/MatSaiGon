@@ -1,5 +1,6 @@
 /*Mobile and tablet*/
 @media only screen and (max-width: 64em){
+    /*Header*/
     .header{
        border-bottom: 2px solid var(--primary-color)
     }
@@ -12,7 +13,7 @@
         display: flex !important;
         flex-basis: 100% !important;
         max-width: 100% !important;
-        padding: 8px 12px;
+        padding: 8px 16px !important;
         align-items: center;
         justify-content: space-between;
     }
@@ -38,29 +39,32 @@
     }
 
     .header__navbar-list{
-        display: none;
+        max-height: 80vh;
+        display: block !important;
         height: 0;
-    }
-
-    .header__logo-block .ti-close{
-        display: none;
-    }
-    
-    .header__navbar-list{
         overflow-y: scroll;
         text-align: left;
     }
 
+    .header__logo-block .ti-close{
+        display: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
     .header__navbar-item::after{
         width: 0;
+    }
+
+    .header__navbar-item .ti-minus{
+        color: var(--primary-color);
+        -webkit-tap-highlight-color: transparent;
     }
 
     .header__navbar-item .ti-plus{
         display: inline-block;
         font-size: 1rem;
         font-weight: bold;
-        color: var(--primary-color)
-        
+        color: var(--primary-color);
     }
 
     .header__navbar-link{
@@ -78,7 +82,8 @@
     }
 
     .header__sub-navbar{
-        display: none;
+        -webkit-tap-highlight-color: transparent;
+        display: block !important;
         position: relative;
         top: 0;
         left: 0;
@@ -89,7 +94,7 @@
         box-shadow: unset;
         visibility: unset;
         opacity: unset;
-        overflow-y: hidden;
+        overflow-y: scroll;
     }
 
     .header__sub-navbar-item{
@@ -112,15 +117,47 @@
     .header__navbar-item{
         display: block;
     }
+
+
+
+    /*Footer*/
+    .update-infor{
+        margin-left: unset;
+    }
 }
 
 /*Tablet*/
 @media only screen and (min-width: 46.25em) and (max-width: 63.9375em){
-
+    
 }
 
 /*Mobile*/
 @media only screen and (max-width: 46.1875em) {
+    /*Slider*/
+    .slider-wrapper__image-link{
+        padding-top: 180%;
+    }
+
+
+
+
+
+
+    /*Footer*/
+    .footer-layout2__row{
+        padding: 32px 8px;
+        font-size: 1.5rem;
+    }
+
+    .update-infor{
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .update-infor__input{
+        width: 100%;
+        margin-left:unset;
+    }
 
 }
 

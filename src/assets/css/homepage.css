@@ -1,3 +1,8 @@
+/*App*/
+.app{
+    overflow: hidden;
+}
+
 /*Messenger*/
 .messenger{
     position: fixed;
@@ -22,6 +27,7 @@
 .layer-bgr-img{
     position: fixed;
     z-index: -40;
+    max-width: 100vw;
 }
 
 /*Slider*/

@@ -1,11 +1,6 @@
 import {sliderBanner, sliderService} from './slider/index.js'
 import {navBar} from './header/index.js';
-const imagesList = [
-    '../assets/img/banner/banner-1.jpg',
-    '../assets/img/banner/banner-2.png',
-    '../assets/img/banner/banner-3.jpg',
-    '../assets/img/banner/banner-4.jpg',
-];
+
 
 const servicesList = [
     {
@@ -38,11 +33,23 @@ const servicesList = [
 ]
 
 class homePage {
-    sliderBanner = new sliderBanner(imagesList)
+    navBar = new navBar();
+    sliderBanner = new sliderBanner()
     sliderService = new sliderService()
+
+    handleEvents(){
+        const app = this
+        window.onresize = function(){
+            app.navBar.resetOriginalState()
+            app.sliderBanner.resetSliderImage()
+        }
+    }
+
     start(){
+        this.navBar.create();
         this.sliderBanner.create()
-        this.sliderService.create()
+        this.sliderService.create() 
+        this.handleEvents()
     }
 }
 

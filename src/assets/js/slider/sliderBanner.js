@@ -1,24 +1,38 @@
 import {Slider, SliderBottomButton} from './slider.js'
 import {header, loadingCircle, sliderBlock, nextBtn, bottomSlideBtn, prevBtn} from '../constant/index.js';
+const imagesList = [
+    '../assets/img/banner/banner-1.jpg',
+    '../assets/img/banner/banner-2.png',
+    '../assets/img/banner/banner-3.jpg',
+    '../assets/img/banner/banner-4.jpg',
+];
+
+const imagesListMobile = [
+    '../assets/img/banner/banner-web-mobile-shopee-1.jpg',
+    '../assets/img/banner/banner-web-mobile-shopee-2.jpg',
+    '../assets/img/banner/banner-mobile-3.jpg',
+    '../assets/img/banner/banner-mobile-4.jpg',
+]
+
 class sliderBanner{
-    imagesList;
     currentIndex = 0
-    constructor(imagesList){
-        this.imagesList = imagesList;
+    constructor(){
+        
     }
 
     renderSlider(){
-        const slider = new Slider(this.imagesList, this.currentIndex)
+        const slider = new Slider(imagesList, this.currentIndex)
         const htmls = slider.createView()
-        const htmlsSliderBtn = SliderBottomButton.createView(this.currentIndex, this.imagesList.length)
+        const htmlsSliderBtn = SliderBottomButton.createView(this.currentIndex, imagesList.length)
+
         sliderBlock.innerHTML = htmls.join('') + sliderBlock.innerHTML
         bottomSlideBtn.innerHTML = htmlsSliderBtn
     }
 
     activeSlideBtn(){
-        const activeBtn = bottomSlideBtn.querySelector('.bottom-slidebutton--active')
-        activeBtn.classList.remove('bottom-slidebutton--active')
-        bottomSlideBtn.childNodes[this.currentIndex].classList.add('bottom-slidebutton--active')
+        const activeBtn = bottomSlideBtn.querySelector('.active')
+        activeBtn.classList.remove('active')
+        bottomSlideBtn.childNodes[this.currentIndex].classList.add('active')
     }
 
     loadCurrentSlide(){
@@ -28,7 +42,7 @@ class sliderBanner{
 
     loadNextSlide(){
         this.currentIndex++
-        if(this.currentIndex == this.imagesList.length){
+        if(this.currentIndex == imagesList.length){
             this.currentIndex = 0 
         }
         this.loadCurrentSlide()
@@ -38,7 +52,7 @@ class sliderBanner{
     loadPrevSlide(){
         this.currentIndex--
         if(this.currentIndex < 0){
-            this.currentIndex = this.imagesList.length - 1
+            this.currentIndex = imagesList.length - 1
         }
         this.loadCurrentSlide()
         this.activeSlideBtn()
@@ -112,8 +126,24 @@ class sliderBanner{
             }
             
         }
+
         
     }
+
+    resetSliderImage(){
+        let docWidth = window.innerWidth
+        let sliders = sliderBlock.children;
+        if(docWidth < 739){
+            for(let i = 0; i < sliders.length; i++){
+                sliders[i].style.backgroundImage = `url("${imagesListMobile[i]}")`
+            }
+        }else{
+            for(let i = 0; i < sliders.length; i++){
+                sliders[i].style.backgroundImage = `url("${imagesList[i]}")`
+            }
+        }
+    }
+
     create(){
         this.renderSlider()
         this.handleEvents()
