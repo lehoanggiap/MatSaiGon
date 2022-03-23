@@ -43,6 +43,7 @@ class homePage {
             app.navBar.resetOriginalState()
             app.sliderBanner.resetSliderImage()
         }
+
     }
 
     start(){

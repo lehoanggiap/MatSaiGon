@@ -48,7 +48,6 @@ class navBar{
 
     resetOnResize(app, cIcon, navbar_list, mIcon, options){
         navbar_list.style.height = options.navbar_list.height;
-        navbar_list.style.display = options.navbar_list.display;
         mIcon.style.display = options.mIcon.display;
         cIcon.style.display = options.cIcon.display;
 
@@ -61,6 +60,12 @@ class navBar{
                 let navlink = menu_item.querySelector('a[class*="navbar-link"]')
                 let mIcon = navlink.querySelector('.ti-plus')
                 let cIcon = navlink.querySelector('.ti-minus')
+                
+                subnav.style.display = 'none'
+                setTimeout(function() {
+                    subnav.style.display = 'block'
+                }, 100)
+
                 app.resetOnResize(app, cIcon, subnav, mIcon, options)
             }
         })
@@ -100,7 +105,6 @@ class navBar{
         const optionsL = {
             navbar_list: {
                 height: 'unset',
-                display: 'block'
             }, 
             mIcon:{
                 display: 'none',
@@ -113,7 +117,6 @@ class navBar{
         const optionsMS = {
             navbar_list: {
                 height: 0,
-                display: 'none'
             }, 
             mIcon:{
                 display: 'block',

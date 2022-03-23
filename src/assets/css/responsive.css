@@ -40,7 +40,7 @@
 
     .header__navbar-list{
         max-height: 80vh;
-        display: block !important;
+        /* display: block !important; */
         height: 0;
         overflow-y: scroll;
         text-align: left;
@@ -83,7 +83,7 @@
 
     .header__sub-navbar{
         -webkit-tap-highlight-color: transparent;
-        display: block !important;
+        /* display: block !important; */
         position: relative;
         top: 0;
         left: 0;
