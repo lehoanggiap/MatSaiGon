@@ -47,6 +47,7 @@ class navBar{
     }
 
     resetOnResize(app, cIcon, navbar_list, mIcon, options){
+        
         navbar_list.style.height = options.navbar_list.height;
         mIcon.style.display = options.mIcon.display;
         cIcon.style.display = options.cIcon.display;
@@ -96,12 +97,8 @@ class navBar{
     }  
 
 
-    handleEvents(){
-        
-        
-    }
-
     resetOriginalState(){
+        //Tối ưu code, thêm style inline vào khi vừa khởi tạo 
         const optionsL = {
             navbar_list: {
                 height: 'unset',
@@ -112,7 +109,7 @@ class navBar{
             cIcon:{
                 display: 'none'
             }
-        }
+        } 
 
         const optionsMS = {
             navbar_list: {

@@ -1,7 +1,6 @@
 import {sliderBanner, sliderService} from './slider/index.js'
 import {navBar} from './header/index.js';
 
-
 const servicesList = [
     {
         img: '../assets/img/eyecheck.png',
@@ -43,6 +42,10 @@ class homePage {
             app.navBar.resetOriginalState()
             app.sliderBanner.resetSliderImage()
         }
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            app.sliderBanner.resetSliderImage()
+        });
 
     }
 
