@@ -2,7 +2,7 @@ import {Slider, SliderBottomButton} from './slider.js'
 import {header, loadingCircle, sliderBlock, nextBtn, bottomSlideBtn, prevBtn} from '../constant/index.js';
 const imagesList = [
     '../assets/img/banner/banner-1.jpg',
-    '../assets/img/banner/banner-2.png',
+    '../assets/img/banner/banner-2.jpg',
     '../assets/img/banner/banner-3.jpg',
     '../assets/img/banner/banner-4.jpg',
 ];
@@ -126,7 +126,6 @@ class sliderBanner{
             }
             
         }
-
         
     }
 

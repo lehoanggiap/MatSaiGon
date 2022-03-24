@@ -1,7 +1,6 @@
 import {header,header_cIcon,header_mIcon, header_navbar} from '../constant/index.js'
 
 class navBar{
-
     calcHeight(navbar_list){
         let res = 0
         Array.from(navbar_list.children).forEach(function(menu_item){
@@ -47,7 +46,7 @@ class navBar{
     }
 
     resetOnResize(app, cIcon, navbar_list, mIcon, options){
-        
+
         navbar_list.style.height = options.navbar_list.height;
         mIcon.style.display = options.mIcon.display;
         cIcon.style.display = options.cIcon.display;
