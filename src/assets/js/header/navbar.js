@@ -1,6 +1,8 @@
-import {header,header_cIcon,header_mIcon, header_navbar} from '../constant/index.js'
+import {header_cIcon,header_mIcon, header_navbar} from '../constant/index.js'
 
 class navBar{
+    //Tính height của header để có thể set overflow bằng hidden, height phải mặc định
+    //Có thể set max height, tuy nhiên khi height là 100% thì animation có vấn đề
     calcHeight(navbar_list){
         let res = 0
         Array.from(navbar_list.children).forEach(function(menu_item){
@@ -8,8 +10,11 @@ class navBar{
             res += itemHeight
         })
         return res;
-    }
-
+    } 
+    
+    //set sự kiện cho icon menu/ icon + đối với navbar con
+    //nếu có nav cha thì set cho nó có height auto, nếu không thì sẽ gặp lỗi khi mở lại, chiều cao của 
+    //th outer nav sẽ bị set cố định lại theo chiều cao đc cộng thêm
     setmIconClick(app, mIcon, outernav , navbar_list, cIcon){
         mIcon.onclick = function(){
             let height = app.calcHeight(navbar_list) + 'px'
@@ -25,7 +30,9 @@ class navBar{
             mIcon.style.display = 'none'
         }
     }
-
+    
+    //set sự kiện cho icon close, set height về 0
+    //cải thiện: outer nav k cần set về auto vì khi ấn cộng thì nó đã auto r
     setcIconClick(app, cIcon, outernav, navbar_list, mIcon){
         cIcon.onclick = function(){
             if(navbar_list.style.height == 'auto'){
@@ -45,6 +52,10 @@ class navBar{
         }
     }
 
+    //trả về các giá trị mặc định ban đầu khi ở màn hình lớn/nhỏ
+    //màn lớn: các icon display none, phải làm v vì set style inline cho nó
+    //màn nhỏ: thì hiện lên
+    //sử dụng đệ quy để set cho sub nav
     resetOnResize(app, cIcon, navbar_list, mIcon, options){
 
         navbar_list.style.height = options.navbar_list.height;
@@ -71,6 +82,7 @@ class navBar{
         })
     }
 
+    //thêm icon plus/icon minus cho subnav. Sử dụng đệ quy
     subNavBarHanlde(app, navbar_list){
         if(navbar_list.children.length <= 0){
             return;

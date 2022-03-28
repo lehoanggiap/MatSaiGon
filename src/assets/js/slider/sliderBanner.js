@@ -23,8 +23,8 @@ class sliderBanner{
     renderSlider(){
         const slider = new Slider(imagesList, this.currentIndex)
         const htmls = slider.createView()
-        const htmlsSliderBtn = SliderBottomButton.createView(this.currentIndex, imagesList.length)
 
+        const htmlsSliderBtn = SliderBottomButton.createView(this.currentIndex, imagesList.length)
         sliderBlock.innerHTML = htmls.join('') + sliderBlock.innerHTML
         bottomSlideBtn.innerHTML = htmlsSliderBtn
     }
@@ -65,7 +65,11 @@ class sliderBanner{
             app.loadNextSlide()
         }, 100)
     }
+    
+    //sau khi clearInterval thì cần load currentSlide ngay
+    //phải reset lại cái loading circle bằng cách nó ẩn đi xong hiện lại 
 
+    
     setTimeOutLoadCurrent(app){
         loadingCircle.style.display = "none";
         setTimeout(function() {

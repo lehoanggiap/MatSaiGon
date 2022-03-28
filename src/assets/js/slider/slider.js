@@ -1,15 +1,15 @@
 class Slider{
-    imagesList;
+    slidersInfo;
     currentIndex;
-    constructor(imagesList, currentIndex){
-        this.imagesList = imagesList
+    constructor(slidersInfo, currentIndex){
+        this.slidersInfo = slidersInfo
         this.currentIndex = currentIndex
     }
 
     createView(){
-        const htmls = this.imagesList.map((image,index) => {
+        const htmls = this.slidersInfo.map((item,index) => {
             return `<a href="" class="slider-wrapper__image-link" data-index="${index}"
-                    style="background: url('${image}') top center / cover no-repeat;">
+                    style="background: url('${item}') top center / cover no-repeat;">
                     </a>`
         })
         return htmls
@@ -24,7 +24,6 @@ class SliderBottomButton{
         for(let i = 0; i < len; i++){
             htmls += `<a href="#" class="bottom-slidebutton ${i === currentIndex ? 'active': ''}" data-index></a>`
         }
-
         return htmls
     }    
 }

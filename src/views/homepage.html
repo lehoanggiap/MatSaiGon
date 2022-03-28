@@ -17,7 +17,11 @@
     <link rel="icon" href="https://www.matsaigon.com/wp-content/uploads/cropped-favicon-32x32.png" sizes="32x32" />
 </head>
 <body>
-
+    <div class="loading-srceen">
+        <div class="loading-screen__circle">
+            
+        </div>
+    </div>
     <div class="app">
         <div class="messenger">
             <svg width="36px" height="36px" viewBox= "0 0 36 36">
@@ -186,6 +190,35 @@
                     </ul>
                 </div>
 
+                <div class="service-container--mobile">
+                    <div class="row">
+                        <div class="col c-5 c-o-1 m-4 m-o-2 service-item--mobile">
+                            <a href="tel:0963075062" class="service-link">
+                                <i class="fa fa-phone"></i>
+                                Hotline
+                            </a>
+                        </div>
+                        <div class="col c-5 m-4 service-item--mobile">
+                            <a href="#" class="service-link">
+                                <i class="fa fa-calendar"></i>
+                                Nhận tư vấn
+                            </a>
+                        </div>
+                        <div class="col c-5 c-o-1 m-4 m-o-2 service-item--mobile">
+                            <a href="#" class="service-link">
+                                <i class="fa fa-calendar"></i>
+                                Đặt lịch
+                            </a>
+                        </div>
+                        <div class="col c-5 m-4 service-item--mobile">
+                            <a href="#" class="service-link">
+                                <i class="fa fa-map"></i>
+                                Hệ thống
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bottom-slidebuttons">
                     <!-- <a href="#" class="bottom-slidebutton bottom-slidebutton--active"></a>
                     <a href="#" class="bottom-slidebutton"></a>
@@ -223,7 +256,7 @@
                                 Chào mừng đến với hệ thống bệnh viện mắt sài gòn
                             </h2>
                             <div class="row mt-64">
-                                <div class="col l-3">
+                                <div class="col l-3 m-3 c-12">
                                     <div class="hospital-strength">
                                         <img src="../assets/img/professor.png" alt="" class="hospital-strength__img">
                                         <h3 class="hospital-strength__name">
@@ -234,7 +267,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col l-3">
+                                <div class="col l-3 m-3 c-12">
                                     <div class="hospital-strength">
                                         <img src="../assets/img/moderntech.png" alt="" class="hospital-strength__img">
                                         <h3 class="hospital-strength__name">
@@ -245,7 +278,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col l-3">
+                                <div class="col l-3 m-3 c-12">
                                     <div class="hospital-strength">
                                         <img src="../assets/img/suitablecost.png" alt="" class="hospital-strength__img">
                                         <h3 class="hospital-strength__name">
@@ -256,7 +289,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col l-3">
+                                <div class="col l-3 m-3 c-12">
                                     <div class="hospital-strength">
                                         <img src="../assets/img/largesystem.png" alt="" class="hospital-strength__img">
                                         <h3 class="hospital-strength__name">
@@ -300,75 +333,22 @@
                             <h2 class="content-section__heading">
                                 Dịch vụ nổi bật
                             </h2>
-                            <div class="row me-gutter mt-64 common-service__list">
-                                <div class="col l-3">
-                                    <div class="common-service__item">
-                                        <img src="../assets/img/eyecheck.png" alt="" class="common-service__img">
-                                        <a href="#" class="common-service__name">
-                                            Khám mắt
-                                        </a>
-                                        <p class="common-service__des">
-                                            Khám, chẩn đoán và điều trị ngoại trú các bệnh lý về mắt cũng như thực hiện các trung, tiểu phẫu về mắt.
-                                        </p>
-                                        <a href="#" class="btn common-service__btn">
-                                           Xem thêm
-                                           <i class="fas fa-chevron-right"></i> 
-                                        </a>
+                            
+                            <div class="mt-64 common-service__block">
+                                <div class="common-service">
+                                    <div class="row me-gutter common-service__list">
+                                    
                                     </div>
                                 </div>
-                                <div class="col l-3">
-                                    <div class="common-service__item">
-                                        <img src="../assets/img/commiteyedisease.png" alt="" class="common-service__img">
-                                        <a href="#" class="common-service__name">
-                                            Điều trị tật khúc xạ
-                                        </a>
-                                        <p class="common-service__des">
-                                            Kiểm tra thị lực và đo độ khúc xạ, điều trị và kiểm soát các tật khúc xạ như cận thị, viễn thị, loạn thị
-                                        </p>
-                                        <a href="#" class="btn common-service__btn">
-                                            Xem thêm
-                                            <i class="fas fa-chevron-right"></i>
-                                        </a>
-                                    </div>
+                                <div class="round-btn common-service__round-btn">
+                                    <i class="fas fa-chevron-left"></i>
                                 </div>
-                                <div class="col l-3">
-                                    <div class="common-service__item">
-                                        <img src="../assets/img/surgey.png" alt="" class="common-service__img">
-                                        <a href="#" class="common-service__name">
-                                            Phẫu thuật khúc xạ
-                                        </a>
-                                        <p class="common-service__des">
-                                            Điều trị khúc xạ bằng các phương pháp hiện đại sử dụng laser như LASIK, STREAMLIGHT, FEMTOSECOND LASIK, RELEX SMILE…  
-                                        </p>
-                                        <a href="#" class="btn common-service__btn">
-                                            Xem thêm
-                                            <i class="fas fa-chevron-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col l-3">
-                                    <div class="common-service__item">
-                                        <img src="../assets/img/phacosurgey.png" alt="" class="common-service__img">
-                                        <a href="#" class="common-service__name">
-                                            Phẫu thuật Phaco
-                                        </a>
-                                        <p class="common-service__des">
-                                            Phẫu thuật Phaco loại bỏ thủy tinh thể bị đục, thay thế bằng ống kính nội nhãn (IOL), khôi phục thị lực cho bệnh nhân
-                                        </p>
-                                        <a href="#" class="btn common-service__btn">
-                                            Xem thêm
-                                            <i class="fas fa-chevron-right"></i>
-                                        </a>
-                                    </div>
+    
+                                <div class="round-btn common-service__round-btn common-service__round-btn--right">
+                                    <i class="fas fa-chevron-right"></i>
                                 </div>
                             </div>
-                            <div class="round-btn common-service__round-btn">
-                                <i class="fas fa-chevron-left"></i>
-                            </div>
-
-                            <div class="round-btn common-service__round-btn common-service__round-btn--right">
-                                <i class="fas fa-chevron-right"></i>
-                            </div>
+                           
                         </div>
         
                         <div class="content-section pt-64">
@@ -379,79 +359,17 @@
                                 <span class="round-btn doctors-btn">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
-                                <span class="round-btn doctors-btn">
+                                <span class="round-btn doctors-btn doctors-btn--right">
                                     <i class="fas fa-chevron-right"></i>
                                 </span>
                             </div>
-                            <div class="row me-gutter mt-48 doctors-list">
-                                <div class="col l-3">
-                                    <div class="doctors-item">
-                                        <div class="doctors-img-container">
-                                            <div class="doctors-img-overlay">
-                                                <a href="#" class="doctors-watch-info">
-                                                    Xem thông tin bác sĩ
-                                                </a>
-                                            </div>
-                                            <img src="../assets/img/doctors/NS-Thuyết-Minh_NGTpng.png" alt="" class="doctors-img">
-                                        </div>
-                                        <a href="#" class="doctors-name">BS CKI Từ Thanh Nữ Thuyết Minh</a>
-                                        <p class="doctors-work-place">
-                                            <span>Bác sĩ</span><br>
-                                            Mắt Sài Gòn Lê Thị Riêng
-                                        </p> 
-                                    </div>
-                                </div>
-                                <div class="col l-3">
-                                    <div class="doctors-item">
-                                        <div class="doctors-img-container">
-                                            <div class="doctors-img-overlay">
-                                                <a href="#" class="doctors-watch-info">
-                                                    Xem thông tin bác sĩ
-                                                </a>
-                                            </div>
-                                            <img src="../assets/img/doctors/BS-Yến-Nhi-CMT8.png" alt="" class="doctors-img">
-                                        </div>
-                                        <a href="#" class="doctors-name">ThS BS Nguyễn Huỳnh Yến Nhi</a>
-                                        <p class="doctors-work-place">
-                                            <span>Bác sĩ</span><br>
-                                            Mắt Sài Gòn Ngô Gia Tự
-                                        </p> 
-                                    </div>
-                                </div>
-                                <div class="col l-3">
-                                    <div class="doctors-item">
-                                        <div class="doctors-img-container">
-                                            <div class="doctors-img-overlay">
-                                                <a href="#" class="doctors-watch-info">
-                                                    Xem thông tin bác sĩ
-                                                </a>
-                                            </div>
-                                            <img src="../assets/img/doctors/BS-Mỹ-.jpg" alt="" class="doctors-img">
-                                        </div>
-                                        <a href="#" class="doctors-name">BS CKI Trần Xuân Mỹ</a>
-                                        <p class="doctors-work-place">
-                                            <span>Bác sĩ</span><br>
-                                            Mắt Sài Gòn Nha Trang
-                                        </p> 
-                                    </div>
-                                </div>
-                                <div class="col l-3">
-                                    <div class="doctors-item">
-                                        <div class="other-doctors">
-                                            <a href="#">
-                                                <i class="fa fa-user-plus"></i>
-                                            </a>
-                                        </div>
-                                        <a href="" class="direct-to-other-doctors-page">
-                                            Xem thêm<br>
-                                            <span>Các Bác Sĩ Khác</span>
-                                        </a>
-                                    </div>
+                            <div class="doctors-block">
+                                <div class="row me-gutter mt-48 doctors-list">
+                                
+                                    
                                 </div>
                                 <div class="bottom-slidebuttons bottom-doctors-slidebuttons">
-                                    <div class="bottom-slidebutton bottom-doctors-slidebutton bottom-doctors-slidebutton--active"></div>
-                                    <div class="bottom-slidebutton bottom-doctors-slidebutton"></div>
-                                    <div class="bottom-slidebutton bottom-doctors-slidebutton"></div>
+                                        
                                 </div>
                             </div>
                         </div>
@@ -492,35 +410,35 @@
                 <div class="achievements-and-patient-shares">
                     <div class="grid wide achievements-and-patient-shares__container">
                         <div class="row achievements">
-                            <div class="col l-2-4">
+                            <div class="col l-2-4 m-6 c-6">
                                 <div class="achievement">
                                     <img src="../assets/img/hospital.png" alt="" class="achievement__icon">
                                     <p class="achievement__number-data">8</p>
                                     <p class="achievement__feature">Bệnh viện</p>
                                 </div>
                             </div>
-                            <div class="col l-2-4">
+                            <div class="col l-2-4 m-6 c-6">
                                 <div class="achievement">
                                     <img src="../assets/img/doctor.png" alt="" class="achievement__icon">
                                     <p class="achievement__number-data">62</p>
                                     <p class="achievement__feature">Bác sĩ</p>
                                 </div>
                             </div>
-                            <div class="col l-2-4">
+                            <div class="col l-2-4 m-6 c-6">
                                 <div class="achievement">
                                     <img src="../assets/img/exp.png" alt="" class="achievement__icon">
                                     <p class="achievement__number-data">17</p>
                                     <p class="achievement__feature">Năm kinh nghiệm</p>
                                 </div>
                             </div>
-                            <div class="col l-2-4">
+                            <div class="col l-2-4 m-6 c-6">
                                 <div class="achievement">
                                     <img src="../assets/img/patients.png" alt="" class="achievement__icon">
                                     <p class="achievement__number-data">3.4 Triệu</p>
                                     <p class="achievement__feature">Khách hàng</p>
                                 </div>
                             </div>
-                            <div class="col l-2-4">
+                            <div class="col l-2-4 m-6 c-6">
                                 <div class="achievement">
                                     <img src="../assets/img/successsurgeys.png" alt="" class="achievement__icon">
                                     <p class="achievement__number-data">666.520</p>
@@ -566,7 +484,7 @@
                                 Tin mới nhất
                             </h2>
                             <div class="row me-gutter mt-64 news-list">
-                                <div class="col l-4">
+                                <div class="col l-4 c-10 c-o-1 m-4 m-o-0 mt-16">
                                     <div class="news-item">
                                         <div class="news-img-container">
                                             <img src="../assets/img/news/news1.png" alt="" class="news-img">
@@ -585,7 +503,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col l-4">
+                                <div class="col l-4 c-10 c-o-1 m-4 m-o-0 mt-16">
                                     <div class="news-item">
                                         <div class="news-img-container">
                                             <img src="../assets/img/news/news2.jpg" alt="" class="news-img">
@@ -604,7 +522,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col l-4">
+                                <div class="col l-4 c-10 c-o-1 m-4 m-o-0 mt-16">
                                     <div class="news-item">
                                         <div class="news-img-container">
                                             <img src="../assets/img/news/news3.jpg" alt="" class="news-img">
@@ -631,17 +549,17 @@
                                 Thư viện hình & video
                             </h2>
                             <div class="row me-gutter mt-64 videos-list">
-                                <div class="col l-4">
+                                <div class="col l-4 c-10 c-o-1 m-4 m-o-0 mt-8">
                                     <div class="videos-item">
                                         <iframe src="https://www.youtube.com/embed/xAqruLtUOIA" frameborder="0" allowtransparency="true" class="video-link"></iframe>
                                     </div>
                                 </div>
-                                <div class="col l-4">
+                                <div class="col l-4 c-10 c-o-1 m-4 m-o-0 mt-8">
                                     <div class="videos-item">
                                         <iframe src="https://www.youtube.com/embed/PIwlM9oJyCo" frameborder="0" allowtransparency="true" class="video-link"></iframe>
                                     </div>
                                 </div>
-                                <div class="col l-4">
+                                <div class="col l-4 c-10 c-o-1 m-4 m-o-0 mt-8">
                                     <a href="#" class="image-library-container">
                                         <span href="#" class="image-library-container__btn">
                                             Thư viện hình ảnh
@@ -663,7 +581,7 @@
             <div class="footer-layout1">
                 <div class="grid wide">
                     <div class="row me-gutter footer-layout1__row">
-                        <div class="col l-4">
+                        <div class="col l-4 c-10 c-o-1 m-4 m-o-0">
                             <p class="license-infor">
                                 Bệnh viện Mắt Sài Gòn - MST : 0302745714 - Cấp ngày 18/10/2002 bởi Sở Kế Hoạch và Đầu Tư TP.HCM Bệnh viện Mắt Sài Gòn - Giấy phép hoạt động số 73/BYT/GPHD 0302745714 - Cấp ngày 25/12/2013 bởi Bộ Y Tế
                             </p>
@@ -672,7 +590,7 @@
                                 <img class="license-img" src="../assets/img/dcma.png" alt="">
                             </div>
                         </div>
-                        <div class="col l-3">
+                        <div class="col l-3 c-0 m-4">
                             <div class="footer-content-section">
                                 <h2 class="footer-content-section__heading">
                                     Dịch vụ
@@ -694,7 +612,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col l-2">
+                        <div class="col l-2 c-0 m-4">
                             <div class="footer-content-section">
                                 <h2 class="footer-content-section__heading">
                                     Về chúng tôi
@@ -718,7 +636,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col l-3">
+                        <div class="col l-3 c-10 c-o-1 m-4 m-o-0">
                             <div class="footer-content-section">
                                 <h2 class="footer-content-section__heading">
                                     Liên hệ

@@ -23,6 +23,14 @@ html{
     box-sizing: border-box;
 }
 
+.mt-8{
+    margin-top: 8px !important;
+}
+
+.mt-16{
+    margin-top: 16px !important;
+}
+
 .mt-48{
     margin-top: 48px !important;
 }
