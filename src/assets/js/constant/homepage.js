@@ -1,10 +1,10 @@
 export const $ = document.querySelector.bind(document);
 export const $$ = document.querySelectorAll.bind(document);
 
-export const body = document.querySelector('body');
+export const body = $('body');
 
-export const app = document.querySelector('.app')
-export const loadingScreen = document.querySelector('.loading-srceen')
+export const app = $('.app')
+export const loadingScreen = $('.loading-srceen')
 
 export const header = $('.header');
 export const header_cIcon = header.querySelector('.ti-close');

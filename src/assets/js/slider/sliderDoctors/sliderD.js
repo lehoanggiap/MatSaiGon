@@ -27,7 +27,7 @@ class SliderD extends Slider{
                                             <i class="fa fa-user-plus"></i>
                                         </a>
                                     </div>
-                                    <a href="" class="direct-to-other-doctors-page">
+                                    <a href="#" class="direct-to-other-doctors-page">
                                         Xem thêm<br>
                                         <span>Các Bác Sĩ Khác</span>
                                     </a>

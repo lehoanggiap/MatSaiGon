@@ -90,9 +90,9 @@ class navBar{
             let subnav = menu_item.querySelector('ul[class*="navbar"]')
             if(subnav){
                 let navlink = menu_item.querySelector('a[class*="navbar-link"]')
-                navlink.onclick = function(e){
-                    e.preventDefault()
-                }
+                // navlink.onclick = function(e){
+                //     e.preventDefault()
+                // }
                 navlink.innerHTML += `<i class="ti-plus"></i><i class="ti-minus"></i>`
 
                 let mIcon = navlink.querySelector('.ti-plus')

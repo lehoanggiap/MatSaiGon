@@ -1,4 +1,5 @@
 import {body} from './constant/index.js'
+import {$$} from './constant/index.js'
 import {loadingScreen, commonServiceList, prevBtnCSL, nextBtnCSL} from './constant/index.js'
 import {doctorsList, bottomSlideBtn_Doctors, prevBtnDL, nextBtnDL} from './constant/index.js'
 import {patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients} from './constant/index.js'
@@ -7,7 +8,6 @@ import {navBar} from './header/index.js';
 import {sliderBanner, sliderService} from './slider/index.js'
 import {sliderDoctors, sliderPatients} from './slider/index.js'
 import {sliderNews} from './slider/index.js'
-
 
 const servicesList = [
     {
@@ -117,10 +117,11 @@ class homePage {
     sliderDoctors = new sliderDoctors(doctorsList, prevBtnDL, nextBtnDL, bottomSlideBtn_Doctors)
     sliderPatients = new sliderPatients(patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients)
     sliderNews = new sliderNews(newsList, null, null, bottomSlideBtn_News)
-    
 
     handleEvents(){
         const app = this
+        const linkElements = $$('a')
+
         window.onresize = function(){
             app.navBar.resetOriginalState()
             app.sliderBanner.resetSliderImage()
@@ -143,6 +144,16 @@ class homePage {
                 body.style.overflow = "scroll"
             })
         }
+
+        Array.from(linkElements).forEach((link,index) => {
+            if(!link.onclick){
+                if(link.href.slice(-1) == "#"){
+                    link.onclick = function(){
+                        window.location.href = './buildingPage.html';
+                    }
+                }
+            }
+        })
 
     }
 

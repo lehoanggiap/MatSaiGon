@@ -8,7 +8,7 @@ class Slider{
 
     createView(){
         const htmls = this.slidersInfo.map((item,index) => {
-            return `<a href="" class="slider-wrapper__image-link" data-index="${index}"
+            return `<a href="#" class="slider-wrapper__image-link" data-index="${index}"
                     style="background: url('${item}') top center / cover no-repeat;">
                     </a>`
         })
