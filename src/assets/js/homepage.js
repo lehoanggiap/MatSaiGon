@@ -1,3 +1,4 @@
+import {body} from './constant/index.js'
 import {loadingScreen, commonServiceList, prevBtnCSL, nextBtnCSL} from './constant/index.js'
 import {doctorsList, bottomSlideBtn_Doctors, prevBtnDL, nextBtnDL} from './constant/index.js'
 import {patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients} from './constant/index.js'
@@ -139,6 +140,7 @@ class homePage {
             })
             .then(function() {
                 loadingScreen.style.display = "none"
+                body.style.overflow = "scroll"
             })
         }
 
