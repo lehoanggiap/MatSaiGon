@@ -1,4 +1,4 @@
-import { sliderService } from "./sliderService.js";
+import { sliderService } from "../sliderService/sliderService.js";
 import { SliderD, SliderBottomButtonD } from "./sliderD.js"
 
 class sliderDoctors extends sliderService{
@@ -15,8 +15,11 @@ class sliderDoctors extends sliderService{
 
     activeSlideBtn(){
         const activeBtn = this.bottomSlideBtn.querySelector('.active')
-        activeBtn.classList.remove('active')
-        this.bottomSlideBtn.childNodes[this.currentIndex].classList.add('active')
+        if(activeBtn){
+            //Trường hợp nếu chỉ có 1 slide thì k cần render ra bottom btn slider
+            activeBtn.classList.remove('active')
+            this.bottomSlideBtn.childNodes[this.currentIndex].classList.add('active')
+        }
     }
 
     loadCurrentSlide(){
@@ -24,32 +27,41 @@ class sliderDoctors extends sliderService{
         this.activeSlideBtn()
     }
 
-    resetOnResize(){
-        this.calcNewCurrentIndex()
-        this.getLastIndex()
-
-        this.renderBottomSlideBtn()
-
-        this.handleEvents()
-
-        super.resetOnResize()
-        
-    }
-    
     renderBottomSlideBtn(){
         const htmls = SliderBottomButtonD.createView(this.currentIndex, this.lastIndex + 1)
         this.bottomSlideBtn.innerHTML = htmls
     }
 
+    resetOnResize(){
+        //Tính lại index trên màn mới, đồng thời tính luôn độ dài mới của list
+        this.calcNewCurrentIndex()
+
+        //Lấy last index mới
+        this.getLastIndex()
+
+        //Có last index thì ms generate ra bottomSlideBtn
+        this.renderBottomSlideBtn()
+
+        //Sau khi gen lại thì tham chiếu tới bottom slide btn k còn nên phải chạy lại handleEvents
+        this.handleEvents()
+
+        //load Current Slide
+        super.resetOnResize()  
+    }
+
     handleEvents(){
         const app = this
 
-        this.nextBtnCSL.onclick = function(){
-            app.loadNextSlide()
+        if(this.nextBtnCSL){
+            this.nextBtnCSL.onclick = function(){
+                app.loadNextSlide()
+            }
         }
 
-        this.prevBtnCSL.onclick = function(){
-            app.loadPrevSlide()
+        if(this.prevBtnCSL){
+            this.prevBtnCSL.onclick = function(){
+                app.loadPrevSlide()
+            }
         }
 
         this.bottomSlideBtn.childNodes.forEach(function (btn, index){

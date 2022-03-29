@@ -40,7 +40,6 @@
 
     .header__navbar-list{
         max-height: 80vh;
-        /* display: block !important; */
         height: 0;
         overflow-y: scroll;
         text-align: left;
@@ -200,6 +199,41 @@
         padding: 30px 12px;
     }
 
+    /*Achievements*/
+    .achievements{
+        position: relative;
+        top: -30px;
+    }
+
+
+     /*Patient shares*/
+     .achievements-and-patient-shares{
+        padding: 0 0 100px;
+    }
+    .patient-shares__content-container{
+        align-items: center;
+    }
+
+    .patient-shares-block{
+        
+    }
+    .patient-shares__img-container{
+        text-align: center;
+    }
+    
+    .patient-shares__img{
+        margin-left: unset;
+    }
+
+    .patient-shares__content-container{
+        padding-right: unset;
+    }
+    .patient-shares__name,
+    .patient-shares__job{
+        flex: 1;
+        text-align: center;
+    }
+
 
     /*Footer*/
     .update-infor{
@@ -225,6 +259,9 @@
     .service-container--mobile .service-link i{
         margin-right: 20px;
     }
+
+
+   
 }
 
 /*Mobile*/
@@ -283,6 +320,20 @@
     .consultant-content__btn{
         margin-left: 0;
         margin-top: 20px;
+    }
+
+    /*Achievements*/
+    .achievements{
+        position: relative;
+        width: unset; 
+        /*phải chỉnh lại vì độ rộng của nó rộng hơn width cha*/
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .patient-shares__btn{
+        display: none;
     }
 
     /*Footer*/

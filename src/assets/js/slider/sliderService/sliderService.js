@@ -1,4 +1,4 @@
-import { sliderBanner } from "./sliderBanner.js";
+import { sliderBanner } from "../sliderBanner/sliderBanner.js";
 import { SliderS } from './sliderS.js'
 
 class sliderService extends sliderBanner{
@@ -9,6 +9,8 @@ class sliderService extends sliderBanner{
     lastIndex = 0
     
     constructor(sliderList, prevBtnCSL, nextBtnCSL){
+        //Chạy để truy cập vào các thuộc tính, pt của lớp cha
+        //Vì là constructor có đối số nên k tự động kế thừa
        super() 
        this.sliderList = sliderList  
        this.SERVICE_LIST_WIDTH = this.sliderList.getBoundingClientRect().width
@@ -23,6 +25,8 @@ class sliderService extends sliderBanner{
     }
 
     calcWidth(){
+        //Tính width thật sự (tổng chiều dài các item trong list)
+        //Phục vụ cho việc tính last index
         let res = 0
         let marginLeft = 0
         let itemWidth = 0
@@ -48,13 +52,16 @@ class sliderService extends sliderBanner{
     loadCurrentSlide(){
         if(this.currentIndex <= 0){
             this.currentIndex = 0
-            this.prevBtnCSL.classList.add('disabled')
-            this.nextBtnCSL.classList.remove('disabled')
-
+            if(this.prevBtnCSL && this.nextBtnCSL){
+                this.prevBtnCSL.classList.add('disabled')
+                this.nextBtnCSL.classList.remove('disabled')
+            }
         }else if(this.currentIndex >= this.lastIndex){
             this.currentIndex = this.lastIndex
-            this.nextBtnCSL.classList.add('disabled')
-            this.prevBtnCSL.classList.remove('disabled')
+            if(this.prevBtnCSL && this.nextBtnCSL){
+                this.nextBtnCSL.classList.add('disabled')
+                this.prevBtnCSL.classList.remove('disabled')
+            }
         }
 
         this.translateX = this.currentIndex*this.itemWidth
@@ -70,10 +77,14 @@ class sliderService extends sliderBanner{
     resetOnResize(){
         //phải nằm trc getLastIndex() vì last Index reset lại width của list cũ
         this.calcNewCurrentIndex()
+
+        //tính lại phần tử cuối luôn để kiểm tra đk cho current Index và render ra active slide bottom
         this.getLastIndex()
 
-        this.prevBtnCSL.classList.remove('disabled')
-        this.nextBtnCSL.classList.remove('disabled')
+        if(this.prevBtnCSL && this.nextBtnCSL){
+            this.prevBtnCSL.classList.remove('disabled')
+            this.nextBtnCSL.classList.remove('disabled')
+        }
 
         this.loadCurrentSlide()
     }
@@ -108,13 +119,17 @@ class sliderService extends sliderBanner{
     }
 
     loadNextSlide(){
-        this.prevBtnCSL.classList.remove('disabled')
+        if(this.prevBtnCSL){
+            this.prevBtnCSL.classList.remove('disabled')
+        }
         this.currentIndex += 1
         this.loadCurrentSlide()
     }
 
     loadPrevSlide(){
-        this.nextBtnCSL.classList.remove('disabled')
+        if(this.nextBtnCSL){
+            this.nextBtnCSL.classList.remove('disabled')
+        }
         this.currentIndex -= 1
         this.loadCurrentSlide()
     }
@@ -122,21 +137,32 @@ class sliderService extends sliderBanner{
     handleEvents(){
         const app = this
 
-        this.nextBtnCSL.onclick = function(){
-            app.loadNextSlide()
+        if(this.nextBtnCSL){
+            this.nextBtnCSL.onclick = function(){
+                app.loadNextSlide()
+            }
         }
 
-        this.prevBtnCSL.onclick = function(){
-            app.loadPrevSlide()
+        if(this.prevBtnCSL){
+            this.prevBtnCSL.onclick = function(){
+                app.loadPrevSlide()
+            }
         }
+
     }
 
 
     create(source){
         this.renderSlider(source)
+
+        //Tính width để get last index
         this.calcWidth()
+
+        //Tính last index để làm đk cho loadCurrentSlide
         this.getLastIndex()
+
         this.loadCurrentSlide()
+        
         this.handleEvents()
     }
 }

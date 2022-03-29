@@ -1,4 +1,4 @@
-import { Slider, SliderBottomButton} from "./slider.js";
+import { Slider, SliderBottomButton} from "../sliderBanner/slider.js";
 class SliderD extends Slider{
     createView(){
         const htmls = this.slidersInfo.map((doctor,index) => {

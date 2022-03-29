@@ -1,6 +1,8 @@
 export const $ = document.querySelector.bind(document);
 export const $$ = document.querySelectorAll.bind(document);
 
+export const body = document.querySelector('body');
+
 export const app = document.querySelector('.app')
 export const loadingScreen = document.querySelector('.loading-srceen')
 
@@ -24,4 +26,14 @@ export const doctorsList = $('.doctors-list')
 export const prevBtnDL = $('.doctors-btn')
 export const nextBtnDL = $('.doctors-btn--right')
 export const bottomSlideBtn_Doctors = $('.bottom-doctors-slidebuttons')
+
+
+export const patientsList = $('.patient-shares')
+export const prevBtnPL = $('.patient-shares__left-btn')
+export const nextBtnPL = $('.patient-shares__right-btn')
+export const bottomSlideBtn_Patients = $('.achievements-and-patient-shares__round-btns-container')
+
+
+export const newsList = $('.news-list')
+export const bottomSlideBtn_News = $('.bottom-news-slidebuttons')
 

@@ -32,14 +32,13 @@ class navBar{
     }
     
     //set sự kiện cho icon close, set height về 0
-    //cải thiện: outer nav k cần set về auto vì khi ấn cộng thì nó đã auto r
     setcIconClick(app, cIcon, outernav, navbar_list, mIcon){
         cIcon.onclick = function(){
             if(navbar_list.style.height == 'auto'){
                 navbar_list.style.height = app.calcHeight(navbar_list) + 'px'
                 setTimeout(function(){
                     navbar_list.style.height = 0
-                }, 50)
+                }, 5)
             }else{
                 navbar_list.style.height = 0
                 if(outernav){
@@ -75,7 +74,7 @@ class navBar{
                 subnav.style.display = 'none'
                 setTimeout(function() {
                     subnav.style.display = 'block'
-                }, 100)
+                }, 100) //lúc back về màn lớn/ nếu k set display none thì nó chạy cái animation
 
                 app.resetOnResize(app, cIcon, subnav, mIcon, options)
             }

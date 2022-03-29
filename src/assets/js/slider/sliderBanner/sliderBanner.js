@@ -1,5 +1,5 @@
 import {Slider, SliderBottomButton} from './slider.js'
-import {header, loadingCircle, sliderBlock, nextBtn, bottomSlideBtn, prevBtn} from '../constant/index.js';
+import {header, loadingCircle, sliderBlock, nextBtn, bottomSlideBtn, prevBtn} from '../../constant/index.js';
 const imagesList = [
     '../assets/img/banner/banner-1.jpg',
     '../assets/img/banner/banner-2.jpg',
@@ -93,6 +93,8 @@ class sliderBanner{
         return autoSlide
     }
 
+    //Cách cải tiến, chuyển hết về loadCurrent, chỉ tăng hoặc giảm
+    //this.currentIndex rồi sau đó reset lại timer, timer sau mỗi 5s sẽ tự tăng currentIndex
     handleEvents(){
         const app = this
 

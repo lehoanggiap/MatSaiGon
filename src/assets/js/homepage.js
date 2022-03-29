@@ -1,8 +1,11 @@
-import {sliderBanner, sliderService} from './slider/index.js'
-import {navBar} from './header/index.js';
 import {loadingScreen, commonServiceList, prevBtnCSL, nextBtnCSL} from './constant/index.js'
 import {doctorsList, bottomSlideBtn_Doctors, prevBtnDL, nextBtnDL} from './constant/index.js'
-import {sliderDoctors} from './slider/sliderDoctors.js'
+import {patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients} from './constant/index.js'
+import {newsList, bottomSlideBtn_News} from './constant/index.js'
+import {navBar} from './header/index.js';
+import {sliderBanner, sliderService} from './slider/index.js'
+import {sliderDoctors, sliderPatients} from './slider/index.js'
+import {sliderNews} from './slider/index.js'
 
 
 const servicesList = [
@@ -62,11 +65,57 @@ const doctors = [
 
 ]
 
+const patients = [
+    {
+        img: '../assets/img/luongbichhuu.png',
+        name: 'Lương Bích Hữu',
+        job: 'Ca sĩ',
+        shares: 'Ít ai biết Hữu bị cận. Để phù hợp với tính chất công việc, Hữu thường đeo lens nhưng những bất tiện phát sinh và nguy cơ gây ra đối với mắt khi sử dụng lâu dài khiến Hữu hạ quyết tâm sắp xếp thời gian để đi xóa cận.Hiểu được tầm quan trọng của đôi mắt mình nên Hữu đã phải tìm rất kỹ và quyết định chọn phẫu thuật xóa cận ở Trung tâm nhãn khoa Eagle Eye Centre VietNam (EEC). Được biết, EEC là sự hợp tác hoàn hảo giữa chuẩn mực chất lượng y tế của Singapore và kinh nghiệm dày dặn của bác sĩ đầu ngành tại Hệ Thống Bệnh Viện Mắt Sài Gòn. Ấn tượng nhất với Hữu đó là quy trình “Zero Waiting Time” – khám phẫu thuật không chờ đợi, rất phù hợp với lịch trình công việc dày của Hữu; cùng với 10 đặc quyền 5 sao khác đúng chuẩn Singapore tại EEC. Hữu được ThS BS CKI Lê Nguyễn Huy Cường trực tiếp thăm khám, tư vấn và phẫu thuật với ReLEx Smile – phương pháp tốt nhất trị trường hiện này. Hữu xin chân thành cám ơn đội ngũ y bác sỹ Trung tâm nhãn khoa Eagle Eye Centre Vietnam đã giúp Hữu lấy lại thị lực mà Hữu hằng mong ước. Sau nhiều năm làm bạn với cặp kính cận, giờ Hữu đã có thể say bye với nó. Mắt Hữu giờ sáng rực như viên kim cương vậy đó, nhìn gì cũng rõ.'
+    },
+    {
+        img: '../assets/img/Lynk-lee.png',
+        name: 'Lynk Lee',
+        job: 'Ca sĩ',
+        shares: `Bị cận từ năm lớp 8 đến bây giờ đã là 20 năm Linh sống chung cùng cặp kính cận. Vì tính chất công việc, Linh phải dùng lens nhưng mắt lại bị khô. Mấy anh chị em trong nghề cũng chia sẻ rằng bác sĩ bảo không nên lạm dụng đeo lens nữa vìdễ làm xước hay rách giác mạc nên Linh cũng bắt đầu lo.  
+        Thế là từ đó, Linh quyết sắp xếp lại công việc, đi xóa cận ngay và luôn.
+        Qua sự giới thiệu của bạn bè trong giới đã từng mổ cận, Linh đã chọn Bệnh viện Mắt Sài Gòn và được bác sĩ trưởng khoa lasik Trương Công Minh, người có hơn 20 năm kinh nghiệm phẫu thuật với phương pháp Femto vì giác mạc của Linh mỏng. 
+        Nguyện vọng có được một đôi mắt sáng khỏe đã trở thành hiện thực. Linh đã tháo kính thành công, tự tin tham gia Gương Mặt Thân Quen, rất nhiều show diễn khác của mình và quan trọng nhất là được nhìn thấy khuôn mặt yêu thương của những người hâm mộ. `
+    },
+    {
+        img: '../assets/img/NSND-Hồng-Vân.png',
+        name: 'Cô Hồng Vân',
+        job: 'NSND',
+        shares: `Tôi rất quan tâm và chăm lo cho sức khỏe đôi mắt của cả gia đình vì mẹ từng bị đục thủy tinh thể. Quãng thời gian đó tôi và các thành viên lúc nào cũng ở cạnh động viên bà để tinh thần phấn khởi. Mặc dù đã qua phẫu thuật nhưng mắt bà có hiện tượng mờ lại một thời gian sau đó. Sau khi đưa mẹ đi khám mắt và nhận được tư vấn của bác sĩ, bà nhận ra tình trạng mắt mờ còn liên quan đến các vấn đề khác như tuổi tác, độ lão. Bác sĩ Mắt Sài Gòn đã tận tình giải thích, thăm khám, đo mắt và chỉnh lại độ của mắt kính nên bây giờ mắt bà đã nhìn rõ hơn. 
+        Ước mơ nhìn rõ con cháu của bà giờ đã thành sự thật. Cảm ơn Mắt Sài Gòn đã mang ánh sáng đến tuổi xế chiều của mẹ.`
+    }
+]
+
+
+const news = [
+    {
+        img: '../assets/img/news/news1.png',
+        title: 'Tập đoàn Y khoa Sài Gòn tổ chức Hội Nghị Khoa Học Lần Thứ Nhất – 19.02.2022',
+        des: 'Ngày 19/02/2022, Hội nghị khoa học kỹ thuật lần thứ nhất của Tập đoàn Y khoa Sài Gòn…',
+    },
+    {
+        img: '../assets/img/news/news2.jpg',
+        title: 'Thông báo chương trình ưu đãi phẫu thuật khúc xạ LASIK tháng 02.2022',
+        des: 'Hệ thống bệnh viện Mắt Sài Gòn thông báo ưu đãi phí dịch vụ phẫu thuật khúc xạ…',
+    },
+    {
+        img: '../assets/img/news/news3.jpg',
+        title: 'Tập đoàn Carl Zeiss (Đức) ký kết hợp tác toàn diện với Hệ thống Mắt Sài Gòn',
+        des: 'Ngày 27/11/2021 vừa qua, Tập đoàn thiết bị nhãn khoa Carl Zeiss (Zeiss) và Hệ thống Bệnh viện…',
+    }
+]
+
 class homePage {
     navBar = new navBar();
     sliderBanner = new sliderBanner()
     sliderService = new sliderService(commonServiceList, prevBtnCSL, nextBtnCSL)
     sliderDoctors = new sliderDoctors(doctorsList, prevBtnDL, nextBtnDL, bottomSlideBtn_Doctors)
+    sliderPatients = new sliderPatients(patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients)
+    sliderNews = new sliderNews(newsList, null, null, bottomSlideBtn_News)
     
 
     handleEvents(){
@@ -76,6 +125,8 @@ class homePage {
             app.sliderBanner.resetSliderImage()
             app.sliderService.resetOnResize()
             app.sliderDoctors.resetOnResize()
+            app.sliderPatients.resetOnResize()
+            app.sliderNews.resetOnResize()
         }
 
         document.addEventListener("DOMContentLoaded", function(event) {
@@ -98,6 +149,8 @@ class homePage {
         this.sliderBanner.create()
         this.sliderService.create(servicesList) 
         this.sliderDoctors.create(doctors)
+        this.sliderPatients.create(patients)
+        this.sliderNews.create(news)
         this.handleEvents()
     }
 }

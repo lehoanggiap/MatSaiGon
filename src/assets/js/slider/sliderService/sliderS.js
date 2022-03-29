@@ -1,4 +1,4 @@
-import { Slider } from "./slider.js";
+import { Slider } from "../sliderBanner/slider.js";
 
 class SliderS extends Slider{
    

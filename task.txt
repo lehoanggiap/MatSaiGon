@@ -1,0 +1,2 @@
+header: còn sroll to view
+slider: swipe from right to left, left to right

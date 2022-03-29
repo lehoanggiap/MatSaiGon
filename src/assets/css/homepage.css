@@ -829,9 +829,19 @@
 }
 
 /*Shares*/
+.patient-shares-block{
+    position: relative;
+}
+
+.patient-shares-container{
+    overflow: hidden;
+}
+
 .patient-shares{
     position: relative;
     align-items: center;
+    flex-wrap: nowrap;
+    transition: all ease-in 0.2s;
 }
 
 .patient-shares__img{
@@ -941,7 +951,7 @@
     background-color: #869791;
 }
 
-.achievements-and-patient-shares__round-btn--active{
+.achievements-and-patient-shares__round-btn.active{
     background-color: var(--white-color);
 }
 
@@ -952,9 +962,15 @@
 }
 
 /*news part*/
+.news-list-block{
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 80px;
+}
 
 .news-list{
-
+    flex-wrap: nowrap;
+    transition: all ease-in 0.2s;
 }
 
 .news-item{
@@ -1042,6 +1058,24 @@
 
 .news-btn-watch:hover i{
     transform: translateX(5px);
+}
+
+.bottom-news-slidebuttons{
+
+}
+
+.bottom-news-slidebutton{
+    border: unset;
+    background-color: #ccc;
+}
+
+
+.bottom-news-slidebutton:hover{
+    background-color: var(--primary-color)
+}
+
+.bottom-news-slidebutton.active{
+    background-color: var(--primary-color)
 }
 
 /*Video list*/
