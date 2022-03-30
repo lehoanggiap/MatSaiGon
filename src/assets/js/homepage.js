@@ -3,11 +3,21 @@ import {$$} from './constant/index.js'
 import {loadingScreen, commonServiceList, prevBtnCSL, nextBtnCSL} from './constant/index.js'
 import {doctorsList, bottomSlideBtn_Doctors, prevBtnDL, nextBtnDL} from './constant/index.js'
 import {patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients} from './constant/index.js'
+
+import {modal, modalBody, bookingBtn, bookingBtn_Content, bookingBtn_Mobile, modalBookingForm, booking_CloseBtn} from './constant/index.js'
+import {consultingBtn, consultingBtn_Mobile, consultingForm, consulting_CloseBtn} from './constant/index.js'
+
 import {newsList, bottomSlideBtn_News} from './constant/index.js'
 import {navBar} from './header/index.js';
 import {sliderBanner, sliderService} from './slider/index.js'
 import {sliderDoctors, sliderPatients} from './slider/index.js'
 import {sliderNews} from './slider/index.js'
+import {Modal} from './modal/index.js'
+
+import {Validator} from './validator/index.js'
+
+let validator = new Validator()
+console.log(validator)
 
 const servicesList = [
     {
@@ -110,6 +120,24 @@ const news = [
     }
 ]
 
+const options = {
+    form: '.modal__form',
+    
+}
+
+const setsOfElements = [
+    {
+        openBtns: [bookingBtn, bookingBtn_Content, bookingBtn_Mobile],
+        modalElement: modalBookingForm,
+        closeBtn: booking_CloseBtn,
+    },
+    {
+        openBtns: [consultingBtn, consultingBtn_Mobile],
+        modalElement: consultingForm,
+        closeBtn: consulting_CloseBtn,
+    }
+]
+
 class homePage {
     navBar = new navBar();
     sliderBanner = new sliderBanner()
@@ -117,6 +145,8 @@ class homePage {
     sliderDoctors = new sliderDoctors(doctorsList, prevBtnDL, nextBtnDL, bottomSlideBtn_Doctors)
     sliderPatients = new sliderPatients(patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients)
     sliderNews = new sliderNews(newsList, null, null, bottomSlideBtn_News)
+    modal = new Modal(modal, modalBody, setsOfElements)
+    
 
     handleEvents(){
         const app = this
@@ -154,7 +184,7 @@ class homePage {
                 }
             }
         })
-
+        
     }
 
     start(){
@@ -164,6 +194,7 @@ class homePage {
         this.sliderDoctors.create(doctors)
         this.sliderPatients.create(patients)
         this.sliderNews.create(news)
+        this.modal.create();
         this.handleEvents()
     }
 }

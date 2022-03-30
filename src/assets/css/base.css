@@ -572,7 +572,7 @@ html{
     display: block;
     text-align: right;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 
@@ -597,8 +597,36 @@ html{
 .form__des-field,
 .booking-form__datetime-group,
 .booking-form__slt-group{
+    position: relative;
     margin-bottom: 10px;
 }
+
+.booking-form__error-message{
+    position: absolute;
+    left: -16px;
+    top: 26px;
+    padding: 12px;
+    background-color: var(--white-color);
+    z-index: 10;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 2px 12px rgba(0, 0, 0, 0.3);
+    color: red;
+}
+
+.booking-form__error-message::after{
+    position: absolute;
+    content: "";
+    top: -8px;
+    left: 14px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--white-color);
+    transform: rotate(45deg);
+    border: 1px solid;
+    border-color: #ccc transparent transparent #ccc;
+}
+
 
 /* .booking-form__datetime-group{
    width: 100%;

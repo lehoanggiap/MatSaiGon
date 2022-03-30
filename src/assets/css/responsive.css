@@ -247,6 +247,11 @@
     .license-img-container{
         flex-wrap: wrap;
     }
+
+    /*Modal*/
+    .modal__booking-form{
+        width: 100%;
+    }
 }
 
 /*Tablet*/
@@ -260,8 +265,13 @@
         margin-right: 20px;
     }
 
-
-   
+    /*Modal*/
+    .modal__booking-form{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        height: auto;
+    }
 }
 
 /*Mobile*/
@@ -371,6 +381,28 @@
 
     .license-img-container{
         justify-content: center;
+    }
+
+    /*Modal*/
+    .modal__form-container{
+        padding: 0 0 48px 0;
+    }
+
+    .modal__booking-form .booking-from_row{
+        flex-direction: column-reverse;
+    }
+
+    .modal__consultant-booking-form .modal__form-container{
+        padding: 0 0 48px 0;
+    }
+
+    .modal__consultant-booking-form .consulting-form-row{
+        flex-direction: column-reverse;
+    }
+
+    .modal__consultant-booking-form{
+        max-height: 100%;
+        overflow-y: scroll;
     }
 
 }

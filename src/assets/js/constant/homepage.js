@@ -11,6 +11,22 @@ export const header_cIcon = header.querySelector('.ti-close');
 export const header_mIcon = header.querySelector('.ti-menu');
 export const header_navbar = header.querySelector('.header__navbar-list')
 
+export const bookingBtn = $('.btn.header__btn')
+export const bookingBtn_Content = $('.booking-content__btn')
+export const bookingBtn_Mobile = $('.service-link--booking')
+export const modal = $('.modal')
+export const modalBody = $('.modal__body')
+export const modalBookingForm = $('.modal__booking-form')
+export const booking_CloseBtn = modalBookingForm.querySelector('.modal__form-container i[class*="ti-close"]')
+
+
+export const consultingBtn = $('.consultant-content__btn')
+export const consultingBtn_Mobile = $('.service-link--consulting')
+export const consultingForm = $('.modal__consultant-booking-form')
+export const consulting_CloseBtn = consultingForm.querySelector('.modal__form-container i[class*="ti-close"]')
+
+
+
 export const loadingCircle = $("#loading-circle");
 export const sliderBlock = $(".slider")
 export const nextBtn = $('.slider-btn.slider-btn--right')

@@ -16,7 +16,8 @@ class navBar{
     //nếu có nav cha thì set cho nó có height auto, nếu không thì sẽ gặp lỗi khi mở lại, chiều cao của 
     //th outer nav sẽ bị set cố định lại theo chiều cao đc cộng thêm
     setmIconClick(app, mIcon, outernav , navbar_list, cIcon){
-        mIcon.onclick = function(){
+        mIcon.onclick = function(e){
+            e.stopPropagation();
             let height = app.calcHeight(navbar_list) + 'px'
             navbar_list.style.height = height
             
@@ -33,7 +34,8 @@ class navBar{
     
     //set sự kiện cho icon close, set height về 0
     setcIconClick(app, cIcon, outernav, navbar_list, mIcon){
-        cIcon.onclick = function(){
+        cIcon.onclick = function(e){
+            e.stopPropagation();
             if(navbar_list.style.height == 'auto'){
                 navbar_list.style.height = app.calcHeight(navbar_list) + 'px'
                 setTimeout(function(){
