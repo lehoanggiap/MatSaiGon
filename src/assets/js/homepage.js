@@ -1,4 +1,4 @@
-import {body} from './constant/index.js'
+import {app as mainApp} from './constant/index.js'
 import {$$} from './constant/index.js'
 import {loadingScreen, commonServiceList, prevBtnCSL, nextBtnCSL} from './constant/index.js'
 import {doctorsList, bottomSlideBtn_Doctors, prevBtnDL, nextBtnDL} from './constant/index.js'
@@ -16,8 +16,6 @@ import {Modal} from './modal/index.js'
 
 import {Validator} from './validator/index.js'
 
-let validator = new Validator()
-console.log(validator)
 
 const servicesList = [
     {
@@ -121,8 +119,31 @@ const news = [
 ]
 
 const options = {
-    form: '.modal__form',
-    
+    form: '.modal__booking-form .modal__form',
+    formGroupSelector: '.js-modal_form-group',
+    errorSelector: '.booking-form__error-message',
+    submitBtn : '.modal__btn',
+    rules: [
+        Validator.isRequired('input[name="booking-person"]', 'Vui lòng chọn một trong các tùy chọn sau'),
+        Validator.isRequired('#form__name-input'),
+        Validator.isRequired('#form__phone-input'),
+        Validator.isPhone('#form__phone-input'),
+        Validator.isRequired('#form__email-input'),
+        Validator.isEmail('#form__email-input'),
+        Validator.isRequired('#booking-form__date-input'),
+        Validator.minDate('#booking-form__date-input'),
+        Validator.isRequired('#booking-form__time-input'),
+        Validator.minTime('#booking-form__time-input')
+    ],
+    onSubmit: function (data){
+        loadingScreen.style.display = "block"
+        return new Promise(function (resolve){
+            console.log(data);
+            setTimeout(function () {
+                resolve()
+            }, 4000)
+        })
+    }
 }
 
 const setsOfElements = [
@@ -130,11 +151,13 @@ const setsOfElements = [
         openBtns: [bookingBtn, bookingBtn_Content, bookingBtn_Mobile],
         modalElement: modalBookingForm,
         closeBtn: booking_CloseBtn,
+        modalForm: modalBookingForm.querySelector('.modal__form')
     },
     {
         openBtns: [consultingBtn, consultingBtn_Mobile],
         modalElement: consultingForm,
         closeBtn: consulting_CloseBtn,
+        modalForm: consultingForm.querySelector('.modal__form')
     }
 ]
 
@@ -146,6 +169,7 @@ class homePage {
     sliderPatients = new sliderPatients(patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients)
     sliderNews = new sliderNews(newsList, null, null, bottomSlideBtn_News)
     modal = new Modal(modal, modalBody, setsOfElements)
+    validator = new Validator(options)
     
 
     handleEvents(){
@@ -171,7 +195,7 @@ class homePage {
             })
             .then(function() {
                 loadingScreen.style.display = "none"
-                body.style.overflow = "scroll"
+                mainApp.style.visibility = 'visible'
             })
         }
 

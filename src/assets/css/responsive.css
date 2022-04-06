@@ -404,6 +404,16 @@
         max-height: 100%;
         overflow-y: scroll;
     }
+    
+    .booking-form__error-message.text-input{
+        top: 70px;
+        left: 66px;
+        max-width: unset;
+        transform: unset;
+    }
+    .booking-form__time-field{
+        margin-top: 10px;
+    }
 
 }
 

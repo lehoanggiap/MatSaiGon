@@ -13,14 +13,17 @@ class Modal{
         })
 
         this.setsOfElements.forEach((set)=>{
-            let {openBtns, modalElement, closeBtn} = set;
+            let {openBtns, modalElement, closeBtn, modalForm} = set;
 
             app.modalBody.addEventListener("click", function(e){
                 modalElement.style.display = "none"
+                modalForm.reset()
+                modalForm.click()
             })
 
             openBtns.forEach((btn)=>{
-                btn.onclick = function(){
+                btn.onclick = function(e){
+                    e.preventDefault();
                     app.modal.style.display = "block"
                     modalElement.style.display = "block"
                 }
@@ -33,6 +36,8 @@ class Modal{
             closeBtn.onclick = function(){
                 app.modal.style.display = "none"
                 modalElement.style.display = "none"
+                modalForm.reset()
+                modalForm.click()
             }
 
         })

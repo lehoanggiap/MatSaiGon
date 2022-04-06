@@ -1,9 +1,6 @@
-body{
-    overflow: hidden;
-}
-
 /*App*/
 .app{
+    visibility:hidden;
     overflow: hidden;
 }
 

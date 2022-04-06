@@ -431,7 +431,7 @@ html{
     margin-left: 40px;
 }
 
-.update-infor input[type*="text"]{
+.update-infor input[type*="email"]{
     outline: none;
     border: none;
     border-radius: 30px;
@@ -601,6 +601,11 @@ html{
     margin-bottom: 10px;
 }
 
+.booking-form__date-field,
+.booking-form__time-field{
+    position: relative;
+}
+
 .booking-form__error-message{
     position: absolute;
     left: -16px;
@@ -612,6 +617,27 @@ html{
     border: 1px solid #ccc;
     box-shadow: 5px 2px 12px rgba(0, 0, 0, 0.3);
     color: red;
+    display: none;
+    transition: all ease 0.3s;
+    line-height: 2.2rem;
+    animation: messageFadeIn ease-in .3s;
+}
+
+@keyframes messageFadeIn {
+    from{
+        visibility: hidden;
+    }to{
+        visibility: visible;
+    }
+}
+
+.booking-form__error-message.active{
+    display: block;   
+}
+
+.booking-form__error-message.text-input{
+    top: 70px;
+    left: 28px;
 }
 
 .booking-form__error-message::after{
@@ -631,6 +657,8 @@ html{
 /* .booking-form__datetime-group{
    width: 100%;
 } */
+
+
 
 .booking-form__slt-group input[id*="other"]{
     margin-left: 10px;
@@ -678,6 +706,7 @@ html{
     transform: translateX(-50%);
     box-sizing: unset;
     padding: 2px 24px;
+    border: none;
 }
 
 .modal__btn i{

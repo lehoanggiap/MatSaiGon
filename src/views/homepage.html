@@ -619,13 +619,13 @@
                             </p>
                         </div>
                         <div class="col l-7 m-12 c-12">
-                            <div class="update-infor">
+                            <form class="update-infor">
                                Cập nhật thông tin mới nhất
                                <div class="update-infor__input">
-                                   <input type="text" placeholder="nhập email của bạn">
+                                   <input type="email" required placeholder="nhập email của bạn">
                                    <input type="submit" value="ĐĂNG KÝ!">
                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -688,45 +688,56 @@
                                     ĐẶT LỊCH KHÁM BỆNH
                                 </h2>
 
-                                <form action="" class="modal__form">
+                                <form novalidate action="" class="modal__form">
                                     <div class="booking-form__slt-container">
                                         <p class="booking-form__group-slt-label">
                                             Bạn muốn đặt hẹn khám cho
                                         </p>
-                                        <div class="booking-form__slt-group">
-                                            <input type="radio" name="booking-person" id="self" class="booking-form__radio-btn">
+                                        <div class="booking-form__slt-group js-modal_form-group">
+                                            <input type="radio" name="booking-person" id="self" value="Bản thân" class="booking-form__radio-btn">
                                             <label for="self" class="booking-form__label-radio-btn">Bản thân</label>
-                                            <input type="radio" name="booking-person" id="other" class="booking-form__radio-btn">
+                                            <input type="radio" name="booking-person" id="other" value="Người thân" class="booking-form__radio-btn">
                                             <label for="other" class="booking-form__label-radio-btn">Người thân</label>
-                                            <span class="booking-form__error-message">Vui lòng chọn một trong các tùy chọn sau</span>
+                                            <span class="booking-form__error-message">
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="form__name-field">
+                                    <div class="form__name-field js-modal_form-group">
                                         <label for="form__name-input" class="form__name-label">Họ tên</label>
-                                        <input type="text" name="" id="form__name-input" class="form__name-input">
+                                        <input type="text" name="name" id="form__name-input" class="form__name-input">
+                                        <span class="booking-form__error-message text-input">
+                                        </span>
                                     </div>
-                                    <div class="form__phone-field">
+                                    <div class="form__phone-field js-modal_form-group">
                                         <label for="form__phone-input" class="form__phone-label">Số điện thoại</label>
-                                        <input type="text" name="" id="form__phone-input" class="form__phone-input">
+                                        <input type="text" name="phone" id="form__phone-input" class="form__phone-input">
+                                        <span class="booking-form__error-message text-input">
+                                        </span>
                                     </div>
-                                    <div class="form__email-field">
+                                    <div class="form__email-field js-modal_form-group">
                                         <label for="form__email-input" class="form__email-label">Email</label>
-                                        <input type="text" name="" id="form__email-input" class="form__email-input">
+                                        <input type="text" name="email" id="form__email-input" class="form__email-input">
+                                        <span class="booking-form__error-message text-input">
+                                        </span>
                                     </div>
                                     <div class="booking-form__datetime-group row">
-                                        <div class="col l-6 booking-form__date-field">
+                                        <div class="col l-6 m-6 c-12 booking-form__date-field js-modal_form-group">
                                             <label for="booking-form__date-input" class="booking-form__date-label">Ngày đặt hẹn</label>
-                                            <input type="date" class="booking-form__date-input" min="" required id="booking-form__date-input">
+                                            <input type="date" name="date" class="booking-form__date-input" id="booking-form__date-input">
+                                            <span class="booking-form__error-message text-input">
+                                            </span>
                                         </div>
-                                        <div class="col l-6 booking-form__time-field">
+                                        <div class="col l-6 m-6 c-12 booking-form__time-field js-modal_form-group">
                                             <label for="booking-form__time-input" class="booking-form__time-label">Thời gian</label>
-                                            <input type="time" class="booking-form__time-input" id="booking-form__time-input">
+                                            <input type="time" name="time"  class="booking-form__time-input" id="booking-form__time-input">
+                                            <span class="booking-form__error-message text-input">
+                                            </span>
                                         </div>
                                     </div>
 
                                     <div class="booking-form__slt-group">
                                         <label for="booking-form__time-input" class="booking-form__time-label">Chọn bệnh viện</label>
-                                        <select name="" id="" class="booking-form__slt-list">
+                                        <select name="hospital" id="" class="booking-form__slt-list">
                                             <option value="">Bệnh viện Mắt Sài Gòn Hà Nội (77 Nguyễn Du)</option>
                                             <option value="">Bệnh viện Mắt Sài Gòn Hà Nội I (532 đường Láng)</option>
                                             <option value="">Bệnh viện Mắt Sài Gòn Vinh (Đại lộ V.I Lê Nin)</option>
@@ -735,14 +746,12 @@
                                     </div>
                                     <div class="form__des-field">
                                         <label for="form__des-input" class="form__des-label">Mô tả triệu chứng/lý do khám</label>
-                                        <textarea type="text" rows="4" name="" id="form__des-input" class="form__des-input">
-
-                                        </textarea>
+                                        <textarea type="text" rows="4" name="symptom" id="form__des-input" class="form__des-input"></textarea>
                                     </div>
-                                    <div class="btn modal__btn">
+                                    <button type="submit" class="btn modal__btn">
                                         Đặt lịch hẹn
                                         <i class="fas fa-calendar-alt"></i>
-                                    </div>
+                                    </button>
                                 </form>
                             </div>
                         </div>
