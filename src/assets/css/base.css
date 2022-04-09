@@ -7,6 +7,7 @@
     --content-bgr-color: #f5f8fa;
     --content-text-color: #333;
     --footer-text-color: #e3e3e3;
+    --text-color: #333;
 }
 
 *{
@@ -43,6 +44,39 @@ html{
     padding-top: 64px !important;
 }
 
+/*loading screen*/
+.loading-srceen{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--white-color);
+}
+
+.loading-screen__circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 8px solid;
+    border-color: var(--primary-color) #ccc #ccc #ccc;
+    box-sizing: unset;
+    animation: loading-screenRotate 1.5s linear infinite;
+}
+
+@keyframes loading-screenRotate{
+    from{
+        transform:translate(-50%, -50%) rotate(0);
+    }to{
+        transform:translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 /*Communal button*/
 .btn{
     display: inline-flex;
@@ -71,6 +105,87 @@ html{
     border-radius: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+}
+
+/*Main content*/
+.main-content{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+/*Side navbar*/
+.side_navbar{
+    margin-top: 30px;
+    animation: sideNavFadeIn ease 1s;
+}
+
+@keyframes sideNavFadeIn {
+    from{
+        transform: translateX(-100%);
+        opacity: 0;
+    }to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.navbar_list{
+    list-style-type: none;
+    box-shadow: 0px 1px 20px 0px rgb(218 227 232 / 75%);
+    padding: 12px 0;
+    border-radius: 3px;
+}
+
+.navbar_item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    margin: 0 32px;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+
+.navbar_item:last-child{
+    border-bottom: none;
+}
+
+.navbar_link{
+    flex: 1;
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: inherit;
+}
+
+.navbar_item::before{
+    content: "";
+    display: block;
+    position: relative;
+    width: 2px;
+    height: 25px;
+    top: -3px;
+    left: 0;
+    background-color: #ddd;
+    margin-right: 20px;
+    transition: inherit;
+}
+
+.navbar_item i{
+    color: #ddd;
+    font-size: 1.6rem;
+    transition: inherit;
+}
+
+.navbar_item:hover .navbar_link,
+.navbar_item:hover i{
+    color: var(--primary-color);
+}
+
+.navbar_item:hover::before{
+    background-color: var(--primary-color);
 }
 
 /*Header*/

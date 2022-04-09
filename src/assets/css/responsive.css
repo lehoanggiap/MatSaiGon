@@ -415,5 +415,18 @@
         margin-top: 10px;
     }
 
+    /*Intro page*/
+    .content-header{
+        padding: 0 20px;
+    }
+
+    .content-paragraph{
+        padding: 0 20px;
+    }
+    .side_navbar{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
 }
 

@@ -1,6 +1,9 @@
-import {header_cIcon,header_mIcon, header_navbar} from '../constant/index.js'
-
 class navBar{
+    constructor(header_cIcon,header_mIcon, header_navbar){
+        this.header_cIcon = header_cIcon;
+        this.header_mIcon = header_mIcon;
+        this.header_navbar = header_navbar;
+    }
     //Tính height của header để có thể set overflow bằng hidden, height phải mặc định
     //Có thể set max height, tuy nhiên khi height là 100% thì animation có vấn đề
     calcHeight(navbar_list){
@@ -137,17 +140,17 @@ class navBar{
 
         let docWidth = window.innerWidth
         if(docWidth > 1024){
-            this.resetOnResize(this, header_cIcon, header_navbar, header_mIcon, optionsL)
+            this.resetOnResize(this, this.header_cIcon, this.header_navbar, this.header_mIcon, optionsL)
         }else{
-            this.resetOnResize(this, header_cIcon, header_navbar, header_mIcon, optionsMS)
+            this.resetOnResize(this, this.header_cIcon, this.header_navbar, this.header_mIcon, optionsMS)
         }
     }
 
     create(){
         const app = this
-        this.setmIconClick(app, header_mIcon, null, header_navbar, header_cIcon)
-        this.setcIconClick(app, header_cIcon, null, header_navbar, header_mIcon)
-        this.subNavBarHanlde(app, header_navbar)
+        this.setmIconClick(app, this.header_mIcon, null, this.header_navbar, this.header_cIcon)
+        this.setcIconClick(app, this.header_cIcon, null, this.header_navbar, this.header_mIcon)
+        this.subNavBarHanlde(app, this.header_navbar)
     }
 }
 

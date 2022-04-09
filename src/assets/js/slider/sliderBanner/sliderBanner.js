@@ -121,17 +121,6 @@ class sliderBanner{
                 resetTimer(app, app.setTimeOutLoadCurrent)
             }
         })
-
-
-        document.onscroll = function(){
-            const scrollTop = window.scrollY || document.documentElement.scrollTop
-            if(scrollTop > header.offsetHeight){
-               header.classList.add('fixed')
-            }else{
-                header.classList.remove('fixed')
-            }
-            
-        }
         
     }
 

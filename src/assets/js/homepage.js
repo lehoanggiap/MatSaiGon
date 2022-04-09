@@ -1,5 +1,6 @@
+import {Page} from './page.js'
 import {app as mainApp} from './constant/index.js'
-import {$$} from './constant/index.js'
+
 import {loadingScreen, commonServiceList, prevBtnCSL, nextBtnCSL} from './constant/index.js'
 import {doctorsList, bottomSlideBtn_Doctors, prevBtnDL, nextBtnDL} from './constant/index.js'
 import {patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients} from './constant/index.js'
@@ -8,7 +9,7 @@ import {modal, modalBody, bookingBtn, bookingBtn_Content, bookingBtn_Mobile, mod
 import {consultingBtn, consultingBtn_Mobile, consultingForm, consulting_CloseBtn} from './constant/index.js'
 
 import {newsList, bottomSlideBtn_News} from './constant/index.js'
-import {navBar} from './header/index.js';
+
 import {sliderBanner, sliderService} from './slider/index.js'
 import {sliderDoctors, sliderPatients} from './slider/index.js'
 import {sliderNews} from './slider/index.js'
@@ -161,8 +162,7 @@ const setsOfElements = [
     }
 ]
 
-class homePage {
-    navBar = new navBar();
+class homePage extends Page{
     sliderBanner = new sliderBanner()
     sliderService = new sliderService(commonServiceList, prevBtnCSL, nextBtnCSL)
     sliderDoctors = new sliderDoctors(doctorsList, prevBtnDL, nextBtnDL, bottomSlideBtn_Doctors)
@@ -170,20 +170,21 @@ class homePage {
     sliderNews = new sliderNews(newsList, null, null, bottomSlideBtn_News)
     modal = new Modal(modal, modalBody, setsOfElements)
     validator = new Validator(options)
-    
+    constructor(){
+        super()
+    }
 
     handleEvents(){
         const app = this
-        const linkElements = $$('a')
+        super.handleEvents()
 
-        window.onresize = function(){
-            app.navBar.resetOriginalState()
+        window.addEventListener('resize', () => {
             app.sliderBanner.resetSliderImage()
             app.sliderService.resetOnResize()
             app.sliderDoctors.resetOnResize()
             app.sliderPatients.resetOnResize()
             app.sliderNews.resetOnResize()
-        }
+        })
 
         document.addEventListener("DOMContentLoaded", function(event) {
             app.sliderBanner.resetSliderImage()
@@ -198,21 +199,11 @@ class homePage {
                 mainApp.style.visibility = 'visible'
             })
         }
-
-        Array.from(linkElements).forEach((link,index) => {
-            if(!link.onclick){
-                if(link.href.slice(-1) == "#"){
-                    link.onclick = function(){
-                        window.location.href = './buildingPage.html';
-                    }
-                }
-            }
-        })
         
     }
 
     start(){
-        this.navBar.create();
+        super.start()
         this.sliderBanner.create()
         this.sliderService.create(servicesList) 
         this.sliderDoctors.create(doctors)

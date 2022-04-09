@@ -1,0 +1,144 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        //execute before domcontent loaded, ready state của nó là loading
+        //nếu thẻ script gắn thêm type thì nó sẽ k block đc sự kiện domcontent loaded
+        var html = document.querySelector('html');
+        html.style.visibility = 'hidden';
+    </script>  
+    <script type="module" >
+        import {getFooter, getHead} from '../assets/js/viewsEngine/index.js'
+        import {loadPage} from '../assets/js/loadPage.js'
+
+        //ready state là interactive
+        document.addEventListener('DOMContentLoaded', function(e) {
+            Promise.resolve().then(() => loadPage('intropage.js'))
+            .then(() => getFooter())
+            .then(() =>  getHead('Giới thiệu chung'))
+        })
+     
+        window.onload = function(e) {
+            html.style.visibility = 'unset'
+        }
+        
+    </script>
+    <link rel="stylesheet" href="../assets/css/intropage.css">
+
+
+</head>
+<body>
+    <!-- <div class="loading-srceen">
+        <div class="loading-screen__circle">
+            
+        </div>
+    </div> -->
+
+    <script type="module">
+        
+    </script>
+
+
+    <header class="header">
+        
+    </header>
+
+    <div class="app">
+        <div class="grid wide">
+            <div class="row main-content">
+                <div class="content-container col l-8 m-6 c-12">
+                   <h2 class="content-header">
+                       1/GIỚI THIỆU CHUNG:
+                   </h2>
+                   <p class="content-paragraph">
+                    Được thành lập vào năm 2004, trải qua 17 năm hình thành phát triển, với 8 Bệnh viện và 2 Trung tâm nhãn khoa, Phòng khám trải dài khắp 3 miền trên toàn quốc, Hệ thống Bệnh viện Mắt Sài Gòn tự hào là Hệ thống Bệnh viện chuyên khoa Mắt lớn nhất Việt Nam. Quy tụ đội ngũ hơn 500 Bác sĩ, Nhân viên Y tế giỏi chuyên môn, giàu kinh nghiệm; cùng cơ sở vật chất, thiết bị y khoa hiện đại nhập khẩu trực tiếp từ Mỹ, Châu Âu và tâm nguyện toàn tâm, toàn lực chăm sóc thị lực đôi mắt Việt; thương hiệu Mắt Sài Gòn đã trở thành lựa chọn tin cậy của gia đình Việt trên khắp cả nước trong việc khám, điều trị, phục hồi và chăm sóc sức khỏe đôi mắt. Đến nay, Hệ thống Bệnh viện Mắt Sài Gòn thăm khám cho hơn 3.4 triệu khách hàng và phẫu thuật thành công mang lại đôi mắt sáng khỏe cho hơn 660.000 bệnh nhân. Ngoài ra, bệnh viện cũng là nơi tiếp nhận và điều trị thành công những ca bệnh khó từ các đơn vị bệnh viện khác.
+                   </p>
+                   <h2 class="content-header">
+                    2/SỨ MỆNH:
+                    </h2>
+                    <p class="content-paragraph">
+                        Dẫn đầu ngành Mắt cho người dân Việt Nam bằng cách ứng dụng những kỹ thuật tiên tiến, là nơi có chất lượng y khoa chuẩn mực, nơi làm việc thân thiện, năng động và môi trường luôn học tập tiến bộ cho các bác sĩ điều dưỡng và mọi nhân viên, nhằm đưa lại kết quả điều trị tốt nhất.
+                    </p>
+
+                    <h2 class="content-header" style="text-align: center;">
+                        LỊCH SỬ HÌNH THÀNH:
+                    </h2>
+
+                    <div class="row history">
+                        <div class="col l-4">
+                            <ul class="timeline">
+                                <li class="timeline_item active">
+                                    <a href class="timeline_link">
+                                        2004
+                                    </a>
+                                </li>
+                                <li class="timeline_item">
+                                    <a href class="timeline_link">
+                                        2006
+                                    </a>
+                                </li>
+                                <li class="timeline_item">
+                                    <a href class="timeline_link">
+                                        2017
+                                    </a>
+                                </li>
+                                <li class="timeline_item">
+                                    <a href class="timeline_link">
+                                        2020
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l-8 timeline_brief">
+                            <h2>2004</h2>
+                            <p>Thành lập</p>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="side_navbar">
+                        <ul class="navbar_list">
+                            <li class="navbar_item">
+                                <a href="" class="navbar_link">
+                                    Giới thiệu chung
+                                </a>
+                                <i class="fas fa-chevron-right"></i>
+                            </li>
+                            <li class="navbar_item">
+                                <a href="#" class="navbar_link">
+                                    Đội ngũ bác sĩ
+                                </a>
+                                <i class="fas fa-chevron-right"></i>
+                            </li>
+                            <li class="navbar_item">
+                                <a href="#" class="navbar_link">
+                                    Hệ thống bệnh viện
+                                </a>
+                                <i class="fas fa-chevron-right"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class = "footer">
+        <script type="module">
+            
+        </script>
+    </footer>
+
+    <div class="modal">
+
+    </div>
+
+    
+</body>
+</html>
