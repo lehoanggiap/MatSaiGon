@@ -7,5 +7,12 @@ export const body = $('body');
 export const loadingScreen = $('.loading-srceen')
 
 export const header = $('.header');
+
 export const footer = $('.footer');
+
+export const modal = $('.modal')
+
+
+
+
 

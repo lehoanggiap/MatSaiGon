@@ -1,5 +1,4 @@
-export const $ = document.querySelector.bind(document);
-export const $$ = document.querySelectorAll.bind(document);
+import{$, $$} from './page.js'
 
 export const timeline  = $('.timeline')
 export const timeline_links = $$('.timeline_link')

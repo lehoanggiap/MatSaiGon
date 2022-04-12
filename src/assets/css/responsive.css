@@ -252,6 +252,11 @@
     .modal__booking-form{
         width: 100%;
     }
+
+    /*Content-item*/
+    .content-item{
+        margin: 0 8px;
+    }
 }
 
 /*Tablet*/
@@ -426,6 +431,15 @@
     .side_navbar{
         margin-left: 20px;
         margin-right: 20px;
+    }
+    
+    /*App container*/
+    .main-container{
+        padding: 0 12px;
+    }
+
+    .content-item{
+        margin: 0 4px;
     }
 
 }

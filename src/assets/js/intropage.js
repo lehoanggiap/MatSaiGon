@@ -1,5 +1,4 @@
 import { Page } from "./page.js";
-import {header, loadingScreen} from './constant/page.js'
 import {timeline, timeline_items, timeline_links, timeline_brief} from './constant/introduction.js'
    
 

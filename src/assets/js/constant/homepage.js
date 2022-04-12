@@ -1,12 +1,6 @@
-export const $ = document.querySelector.bind(document);
-export const $$ = document.querySelectorAll.bind(document);
-
-export const body = $('body');
+import {$, $$, body, loadingScreen, header, footer, modal} from './page.js'
 
 export const app = $('.app')
-export const loadingScreen = $('.loading-srceen')
-
-export const header = $('.header');
 export const header_cIcon = header.querySelector('.ti-close');
 export const header_mIcon = header.querySelector('.ti-menu');
 export const header_navbar = header.querySelector('.header__navbar-list')
@@ -14,7 +8,7 @@ export const header_navbar = header.querySelector('.header__navbar-list')
 export const bookingBtn = $('.btn.header__btn')
 export const bookingBtn_Content = $('.booking-content__btn')
 export const bookingBtn_Mobile = $('.service-link--booking')
-export const modal = $('.modal')
+
 export const modalBody = $('.modal__body')
 export const modalBookingForm = $('.modal__booking-form')
 export const booking_CloseBtn = modalBookingForm.querySelector('.modal__form-container i[class*="ti-close"]')

@@ -5,18 +5,16 @@ import {loadingScreen, commonServiceList, prevBtnCSL, nextBtnCSL} from './consta
 import {doctorsList, bottomSlideBtn_Doctors, prevBtnDL, nextBtnDL} from './constant/index.js'
 import {patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients} from './constant/index.js'
 
-import {modal, modalBody, bookingBtn, bookingBtn_Content, bookingBtn_Mobile, modalBookingForm, booking_CloseBtn} from './constant/index.js'
+import {bookingBtn_Content, bookingBtn_Mobile} from './constant/index.js'
 import {consultingBtn, consultingBtn_Mobile, consultingForm, consulting_CloseBtn} from './constant/index.js'
 
 import {newsList, bottomSlideBtn_News} from './constant/index.js'
-
+import {Utils} from './static/utils.js'
 import {sliderBanner, sliderService} from './slider/index.js'
 import {sliderDoctors, sliderPatients} from './slider/index.js'
 import {sliderNews} from './slider/index.js'
-import {Modal} from './modal/index.js'
 
 import {Validator} from './validator/index.js'
-
 
 const servicesList = [
     {
@@ -119,48 +117,17 @@ const news = [
     }
 ]
 
-const options = {
-    form: '.modal__booking-form .modal__form',
-    formGroupSelector: '.js-modal_form-group',
-    errorSelector: '.booking-form__error-message',
-    submitBtn : '.modal__btn',
-    rules: [
-        Validator.isRequired('input[name="booking-person"]', 'Vui lòng chọn một trong các tùy chọn sau'),
-        Validator.isRequired('#form__name-input'),
-        Validator.isRequired('#form__phone-input'),
-        Validator.isPhone('#form__phone-input'),
-        Validator.isRequired('#form__email-input'),
-        Validator.isEmail('#form__email-input'),
-        Validator.isRequired('#booking-form__date-input'),
-        Validator.minDate('#booking-form__date-input'),
-        Validator.isRequired('#booking-form__time-input'),
-        Validator.minTime('#booking-form__time-input')
-    ],
-    onSubmit: function (data){
-        loadingScreen.style.display = "block"
-        return new Promise(function (resolve){
-            console.log(data);
-            setTimeout(function () {
-                resolve()
-            }, 4000)
-        })
-    }
+let bookingBtns = [bookingBtn_Content, bookingBtn_Mobile]
+for (let btn of bookingBtns){
+    Utils.setsOfElements[0]['openBtns'].push(btn)
 }
 
-const setsOfElements = [
-    {
-        openBtns: [bookingBtn, bookingBtn_Content, bookingBtn_Mobile],
-        modalElement: modalBookingForm,
-        closeBtn: booking_CloseBtn,
-        modalForm: modalBookingForm.querySelector('.modal__form')
-    },
-    {
-        openBtns: [consultingBtn, consultingBtn_Mobile],
-        modalElement: consultingForm,
-        closeBtn: consulting_CloseBtn,
-        modalForm: consultingForm.querySelector('.modal__form')
-    }
-]
+Utils.setsOfElements[1] = {
+                        openBtns: [consultingBtn, consultingBtn_Mobile],
+                        modalElement: consultingForm,
+                        closeBtn: consulting_CloseBtn,
+                        modalForm: consultingForm.querySelector('.modal__form')
+                    }
 
 class homePage extends Page{
     sliderBanner = new sliderBanner()
@@ -168,8 +135,6 @@ class homePage extends Page{
     sliderDoctors = new sliderDoctors(doctorsList, prevBtnDL, nextBtnDL, bottomSlideBtn_Doctors)
     sliderPatients = new sliderPatients(patientsList, prevBtnPL, nextBtnPL, bottomSlideBtn_Patients)
     sliderNews = new sliderNews(newsList, null, null, bottomSlideBtn_News)
-    modal = new Modal(modal, modalBody, setsOfElements)
-    validator = new Validator(options)
     constructor(){
         super()
     }
@@ -209,7 +174,6 @@ class homePage extends Page{
         this.sliderDoctors.create(doctors)
         this.sliderPatients.create(patients)
         this.sliderNews.create(news)
-        this.modal.create();
         this.handleEvents()
     }
 }
