@@ -918,22 +918,13 @@ html{
 
 
 /*Content in subpage*/
-.content-container{
-    
-}
-
 .content-item{
-    display: none;
     border-radius: 3px;
     overflow: hidden;
     background-color: var(--white-color);
     box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
     transition: all ease 0.5s;
     margin: 6px 0;
-}
-
-.content-item.active{
-    display: block;
 }
 
 .content-item:hover{
@@ -1001,6 +992,7 @@ html{
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .pagination_btn{
@@ -1014,6 +1006,24 @@ html{
     border-radius: 5px;
     text-align: center;
     line-height: 2;
+}
+
+.pagination_dot{
+    display: none;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.pagination_dot:nth-last-child(2){
+    margin-left: 20px;
+}
+
+.pagination_btn:first-child{
+    margin-right: 20px;
+}
+
+.pagination_btn:last-child{
+    margin-left: 20px;
 }
 
 .pagination_btn+.pagination_btn{
