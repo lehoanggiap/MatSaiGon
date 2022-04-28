@@ -40,10 +40,12 @@ function Validator(options){
                             if(errorMessage){
                                 var formGroup = getParent(inputElement, options.formGroupSelector)
                                 var errorElement = formGroup.querySelector(options.errorSelector)
-                                errorElement.classList.add('active');
                                 errorElement.innerHTML = `<i class="fas fa-exclamation-triangle"></i>
                                                           ${errorMessage}`  
                                 
+                                setTimeout(function () {
+                                    errorElement.classList.add('active');
+                                },1)
                                 
                                 // timeOut['timeOutMess'] = setTimeout(function(){
                                 //     console.log(timeOut['timeOutMess'])
@@ -115,9 +117,13 @@ function Validator(options){
            }
         }
 
-        // submitBtn.onclick = function(e){
-        //     e.stopPropagation()
-        // }
+        submitBtn.onclick = function(e){
+           var errorElement = formElement.querySelector(options.errorSelector + ".active")
+           if(errorElement) {
+               errorElement.classList.remove("active")
+           }
+           e.stopPropagation()
+        }
         
     }
 

@@ -979,9 +979,9 @@ html{
 
 @keyframes messageFadeIn {
     from{
-        visibility: hidden;
+        opacity: 0.5;
     }to{
-        visibility: visible;
+        opacity: 1;  
     }
 }
 
