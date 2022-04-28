@@ -1,0 +1,152 @@
+.doctors-team__title{
+    text-transform: uppercase;
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.search{
+    --search-background: #F1F7FA;
+    background-color:var(--white-color);
+    padding: 20px 10px;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px 0px rgb(194 205 211 / 75%);
+    margin-bottom: 40px;
+}
+
+
+.search_hospitals{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:var(--search-background);
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search__selected-value{
+    font-size: 1.6rem;
+    color: #111;
+    padding: 0 15px;
+}
+
+.search__selection-arrow{
+    display: inline-flex;
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search__selection-arrow i{
+    display: none;
+    line-height: 0;
+    font-weight: 700;
+    color: var(--white-color);
+}
+
+.search__selection-arrow i.active{
+    display: block;
+}
+
+.search__selection-arrow i[class *= "up"]{
+    animation: arrowUpRotate linear 0.3s;
+}
+
+.search__selection-arrow i[class *= "down"]{
+    animation: arrowDownRotate linear 0.3s;
+}
+
+@keyframes arrowUpRotate {
+    from{
+        transform: rotate(180deg);
+    }to{
+        transform: rotate(0deg);
+    }
+    
+}
+
+@keyframes arrowDownRotate {
+    from{
+        transform: rotate(-180deg);
+    }to{
+        transform: rotate(0deg);
+    }
+    
+}
+
+
+.enter-name{
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color:var(--search-background);
+    height: 100%;
+    font-size: 1.6rem;
+    padding: 15px 23px;
+}
+
+.enter-name::placeholder{
+    color: #111;
+}
+
+.search__btn{
+    padding: 14px;
+    width: 100%;
+    height: 100% !important;
+    border: none;
+    outline: none;
+}
+
+
+/*Search select*/
+
+.search_select{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    background-color: var(--white-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 4px;
+    z-index: 10;
+}
+
+.search_select.active{
+    display: block;
+}
+
+.search_field{
+    padding: 4px;
+}
+
+.search_input{
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1.5rem;
+    padding: 6px 4px;
+}
+
+.search_list{
+   list-style-type: none;
+   padding: 0 4px;
+}
+
+.search_item{
+    color: var(--text-color);
+    font-size: 1.6rem;
+    padding: 6px;
+    line-height: 2;
+    font-weight: 500;
+}
+
+.search_item:hover{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}

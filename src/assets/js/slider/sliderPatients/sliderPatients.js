@@ -28,7 +28,9 @@ class sliderPatients extends sliderDoctors{
     }
 
     resetOnResize(){
-        this.calcNewCurrentIndex()
+        // this.calcNewCurrentIndex()
+        this.calcWidth()
+
         this.getLastIndex()
 
         //K cần render lại bottom slideBtn vì hiện tại chưa cần đến, width của col luôn full

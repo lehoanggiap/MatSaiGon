@@ -28,7 +28,7 @@ export function getHeader(){
                                                     <a href="#" class="header__sub-navbar-link">Hệ thống bệnh viện</a>
                                                 </li>
                                                 <li class="header__sub-navbar-item">
-                                                    <a href="#" class="header__sub-navbar-link">Đội ngũ bác sĩ</a>
+                                                    <a href="./doctorsteamPage.html" class="header__sub-navbar-link">Đội ngũ bác sĩ</a>
                                                 </li>
                                                 <li class="header__sub-navbar-item">
                                                     <a href="#" class="header__sub-navbar-link">Trang thiết bị</a>

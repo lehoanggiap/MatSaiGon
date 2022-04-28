@@ -84,7 +84,7 @@ let contents = [
     }
 ]
 
-let max_content = 1
+let max_content = 2
 let start = 0
 let end = max_content
 
@@ -150,7 +150,6 @@ showPagination(start)
 function showPagination(index){
     let dots = pagination.querySelectorAll('.pagination_dot')
     if(numberBtns > maxShow){
-        dots[1].style.display = 'block'
         if(index < maxShow){
             dots[0].style.display = 'none'
             dots[1].style.display = 'block'
@@ -201,7 +200,6 @@ Array.from(pagination_btns).forEach(function(page, index){
 })
 
 showPagination(start)
-
 loadContent(start, end)
 
 

@@ -34,7 +34,7 @@ const options = {
     onSubmit: function (data){
         loadingScreen.style.display = "block"
         return new Promise(function (resolve){
-            console.log({data});
+            console.log(data);
             setTimeout(function () {
                 resolve()
             }, 4000)

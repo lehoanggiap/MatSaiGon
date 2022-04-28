@@ -7,13 +7,15 @@ class sliderService extends sliderBanner{
     SERVICE_ITEMS_WIDTH = 0
     SERVICE_LIST_WIDTH = 0
     lastIndex = 0
+
+    //max number of slides is shown in slider
+    nb_slides = 0
     
     constructor(sliderList, prevBtnCSL, nextBtnCSL){
         //Chạy để truy cập vào các thuộc tính, pt của lớp cha
         //Vì là constructor có đối số nên k tự động kế thừa
        super() 
        this.sliderList = sliderList  
-       this.SERVICE_LIST_WIDTH = this.sliderList.getBoundingClientRect().width
        this.prevBtnCSL = prevBtnCSL
        this.nextBtnCSL = nextBtnCSL
     }
@@ -41,6 +43,7 @@ class sliderService extends sliderBanner{
 
         this.itemWidth = itemWidth + marginLeft
         this.SERVICE_ITEMS_WIDTH = res + marginLeft;
+        this.SERVICE_LIST_WIDTH = this.sliderList.getBoundingClientRect().width
     }
 
     placeTransBtn(){
@@ -50,41 +53,62 @@ class sliderService extends sliderBanner{
     }
 
     loadCurrentSlide(){
-        if(this.currentIndex <= 0){
-            this.currentIndex = 0
+
+        if(this.currentIndex <= this.nb_slides){
+            if(this.currentIndex <= 0){
+                this.currentIndex = 0
+            }
             if(this.prevBtnCSL && this.nextBtnCSL){
                 this.prevBtnCSL.classList.add('disabled')
                 this.nextBtnCSL.classList.remove('disabled')
             }
-        }else if(this.currentIndex >= this.lastIndex){
-            this.currentIndex = this.lastIndex
-            if(this.prevBtnCSL && this.nextBtnCSL){
-                this.nextBtnCSL.classList.add('disabled')
-                this.prevBtnCSL.classList.remove('disabled')
+            this.sliderList.style.transform = `translateX(0)`
+        }else if(this.currentIndex > this.nb_slides){
+            if(this.currentIndex >= this.lastIndex){
+                this.currentIndex = this.lastIndex
+                if(this.prevBtnCSL && this.nextBtnCSL){
+                    this.nextBtnCSL.classList.add('disabled')
+                    this.prevBtnCSL.classList.remove('disabled')
+                }
             }
+            
+            this.translateX = (this.currentIndex - this.nb_slides)*this.itemWidth
+            this.sliderList.style.transform = `translateX(-${this.translateX}px)`
         }
-
-        this.translateX = this.currentIndex*this.itemWidth
-        this.sliderList.style.transform = `translateX(-${this.translateX}px)`
     }
 
     getLastIndex(){
         let visibleServices = Math.round(this.SERVICE_LIST_WIDTH/this.itemWidth)
         let actualServices = Math.round(this.SERVICE_ITEMS_WIDTH/this.itemWidth)
-        this.lastIndex = actualServices - visibleServices
+        this.lastIndex = actualServices - 1
+        this.nb_slides = visibleServices - 1
+
+        if(this.lastIndex == this.nb_slides){
+            if(this.prevBtnCSL && this.nextBtnCSL){
+                this.nextBtnCSL.classList.add('not-display')
+                this.prevBtnCSL.classList.add('not-display')
+            }
+        }else{
+            if(this.prevBtnCSL && this.nextBtnCSL){
+                this.nextBtnCSL.classList.remove('not-display')
+                this.prevBtnCSL.classList.remove('not-display')
+            }
+        }
     }
 
     resetOnResize(){
         //phải nằm trc getLastIndex() vì last Index reset lại width của list cũ
-        this.calcNewCurrentIndex()
-
-        //tính lại phần tử cuối luôn để kiểm tra đk cho current Index và render ra active slide bottom
-        this.getLastIndex()
+        // this.calcNewCurrentIndex()
 
         if(this.prevBtnCSL && this.nextBtnCSL){
             this.prevBtnCSL.classList.remove('disabled')
             this.nextBtnCSL.classList.remove('disabled')
         }
+
+        this.calcWidth()
+
+        //tính lại phần tử cuối luôn để kiểm tra đk cho current Index và render ra active slide bottom
+        this.getLastIndex()
 
         this.loadCurrentSlide()
     }
@@ -105,7 +129,7 @@ class sliderService extends sliderBanner{
         let dis = Math.abs(newListIndex - oldListIndex)
 
         if(this.SERVICE_LIST_WIDTH > oldWidth){
-            this.currentIndex -= dis
+            this.currentIndex -= dis       
         }else{
             this.currentIndex += dis
         }
@@ -116,11 +140,19 @@ class sliderService extends sliderBanner{
             this.currentIndex = 0
         }
 
+        if(this.prevBtnCSL && this.nextBtnCSL){
+            this.prevBtnCSL.classList.remove('disabled')
+            this.nextBtnCSL.classList.remove('disabled')
+        }
+
     }
 
     loadNextSlide(){
         if(this.prevBtnCSL){
             this.prevBtnCSL.classList.remove('disabled')
+        }
+        if(this.currentIndex < this.nb_slides){
+            this.currentIndex = this.nb_slides
         }
         this.currentIndex += 1
         this.loadCurrentSlide()
@@ -161,9 +193,12 @@ class sliderService extends sliderBanner{
         //Tính last index để làm đk cho loadCurrentSlide
         this.getLastIndex()
 
-        this.loadCurrentSlide()
         
+        this.loadCurrentSlide()
         this.handleEvents()
+        
+
+        
     }
 }
 

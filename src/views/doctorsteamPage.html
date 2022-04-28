@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        var html = document.querySelector('html');
+        html.style.visibility = 'hidden';
+    </script>  
+    <script type="module" >
+        import {getFooter, getHead, getModal, getHeader} from '../assets/js/viewsEngine/index.js'
+        import {loadingScreen} from '../assets/js/constant/page.js'
+        document.addEventListener('DOMContentLoaded', function(e) {
+            Promise.resolve()
+            .then(() => loadingScreen.style.display = 'none')
+            .then(() => getHeader())
+            .then(() => getFooter())
+            .then(() => getModal())
+            .then(() =>  getHead('Đội ngũ bác sĩ'))
+            .then(() => {
+                let newScript = document.createElement('script')
+                let body = document.querySelector('body')
+                newScript.type = "module"
+                newScript.src = `../assets/js/doctorsteampage.js`
+                body.appendChild(newScript)
+            })
+        })
+    
+        window.onload = function(e) {
+            html.style.visibility = 'unset'
+        }
+    </script>
+    <link rel="stylesheet" href="../assets/css/doctorsteampage.css">
+</head>
+<body>
+
+    <div class="loading-srceen">
+        <div class="loading-screen__circle">
+            
+        </div>
+    </div>
+
+    <div class="app">
+        <header class="header">
+            
+        </header>
+
+        <div class="app__container">
+            <div class="grid wide">
+                <div class="main-container">
+                    <h2 class="doctors-team__title">
+                        ĐỘI NGŨ BÁC SĨ
+                    </h2>
+                    <div class="row search">
+                        <div class="col search_col l-4 m-12 c-12">
+                            <div class="search_hospitals">
+                                <span class="search__selected-value">
+                                    Tất cả bệnh viện
+                                </span>
+                                <div class="search__selection-arrow">
+                                    <i class="ti-angle-down active">
+
+                                    </i>
+                                    <i class="ti-angle-up">
+
+                                    </i>
+                                </div>
+                                <div class="search_select">
+                                    <div class="search_field">
+                                        <input type="text" class="search_input">
+                                    </div>
+                                    <ul class="search_list">
+                                       <li class="search_item">
+                                           Tất cả bệnh viện
+                                       </li>
+                                       <li class="search_item">
+                                           Bệnh Viện Đa Khoa Mắt Sài Gòn
+                                       </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col search_col l-6 m-12 c-12">
+                            <input type='text' class="enter-name" placeholder="Nhập tên Bác sĩ ..." >
+                            </input>
+                        </div>
+                        <div class="col search_col l-2 m-12 c-12">
+                            <button class="btn search__btn">
+                                Tìm kiếm
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="default-doctors-list">
+                        <div class="slider-btns-doctors-list">
+                            <span class="round-btn doctors-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="round-btn doctors-btn doctors-btn--right">
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </div>
+                        <div class="doctors-block">
+                            <div class="row me-gutter mt-48 doctors-list">
+                            
+                                
+                            </div>
+                            <div class="bottom-slidebuttons bottom-doctors-slidebuttons">
+                                    
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <footer class = "footer">
+            
+        </footer>
+    
+        <div class="modal">
+    
+        </div>
+    </div>
+    
+</body>
+</html>

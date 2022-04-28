@@ -2,13 +2,14 @@ import { sliderService } from "../sliderService/sliderService.js";
 import { SliderD, SliderBottomButtonD } from "./sliderD.js"
 
 class sliderDoctors extends sliderService{
-    constructor(sliderList, prevBtnCSL, nextBtnCSL, bottomSlideBtn){
+    constructor(sliderList, prevBtnCSL, nextBtnCSL, bottomSlideBtn, renderLast = true){
         super(sliderList, prevBtnCSL, nextBtnCSL)
         this.bottomSlideBtn = bottomSlideBtn
+        this.renderLast = renderLast
     }
 
     renderSlider(source){
-        const slider = new SliderD(source, this.currentIndex)
+        const slider = new SliderD(source, this.currentIndex, this.renderLast)
         const htmls = slider.createView()
         this.sliderList.innerHTML += htmls.join('')
     }
@@ -18,7 +19,12 @@ class sliderDoctors extends sliderService{
         if(activeBtn){
             //Trường hợp nếu chỉ có 1 slide thì k cần render ra bottom btn slider
             activeBtn.classList.remove('active')
-            this.bottomSlideBtn.childNodes[this.currentIndex].classList.add('active')
+            if(this.currentIndex <= this.nb_slides){
+                this.bottomSlideBtn.childNodes[0].classList.add('active')
+            }else if(this.currentIndex > this.nb_slides){
+                this.bottomSlideBtn.childNodes[this.currentIndex - this.nb_slides].classList.add('active')
+            }
+            
         }
     }
 
@@ -28,13 +34,19 @@ class sliderDoctors extends sliderService{
     }
 
     renderBottomSlideBtn(){
-        const htmls = SliderBottomButtonD.createView(this.currentIndex, this.lastIndex + 1)
+        const htmls = SliderBottomButtonD.createView(this.currentIndex, this.lastIndex + 1 - this.nb_slides)
         this.bottomSlideBtn.innerHTML = htmls
     }
 
     resetOnResize(){
         //Tính lại index trên màn mới, đồng thời tính luôn độ dài mới của list
-        this.calcNewCurrentIndex()
+        // this.calcNewCurrentIndex()
+        if(this.prevBtnCSL && this.nextBtnCSL){
+            this.prevBtnCSL.classList.remove('disabled')
+            this.nextBtnCSL.classList.remove('disabled')
+        }
+
+        this.calcWidth()
 
         //Lấy last index mới
         this.getLastIndex()
@@ -46,7 +58,7 @@ class sliderDoctors extends sliderService{
         this.handleEvents()
 
         //load Current Slide
-        super.resetOnResize()  
+        this.loadCurrentSlide()  
     }
 
     handleEvents(){
@@ -66,6 +78,9 @@ class sliderDoctors extends sliderService{
 
         this.bottomSlideBtn.childNodes.forEach(function (btn, index){
             btn.onclick = function(e) {
+                if(index > 0){
+                    index += app.nb_slides
+                }
                 app.currentIndex = index;
                 app.loadCurrentSlide()
             }

@@ -9,7 +9,7 @@ class sliderNews extends sliderDoctors{
 
 
     renderBottomSlideBtn(){
-        const htmls = SliderBottomButtonN.createView(this.currentIndex, this.lastIndex + 1)
+        const htmls = SliderBottomButtonN.createView(this.currentIndex, this.lastIndex + 1 - this.nb_slides)
         this.bottomSlideBtn.innerHTML = htmls
     }
 
@@ -19,13 +19,13 @@ class sliderNews extends sliderDoctors{
         this.sliderList.innerHTML += htmls.join('')
     }
 
-    activeSlideBtn(){
-        const activeBtn = this.bottomSlideBtn.querySelector('.active')
-        if(activeBtn){
-            activeBtn.classList.remove('active')
-            this.bottomSlideBtn.childNodes[this.currentIndex].classList.add('active')
-        }
-    }
+    // activeSlideBtn(){
+    //     const activeBtn = this.bottomSlideBtn.querySelector('.active')
+    //     if(activeBtn){
+    //         activeBtn.classList.remove('active')
+    //         this.bottomSlideBtn.childNodes[this.currentIndex].classList.add('active')
+    //     }
+    // }
 
     create(source){
         this.renderSlider(source)

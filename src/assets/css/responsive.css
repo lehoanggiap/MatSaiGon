@@ -194,6 +194,13 @@
         flex-wrap: nowrap;
     }
 
+    /*Doctors list*/
+    .doctors-img-container,
+    .other-doctors{
+        width: 200px;
+        height: 200px;
+    }
+
     /*consultant and booking*/
     .consultant-booking-content__col:first-child{
         padding: 30px 12px;
@@ -256,6 +263,12 @@
     /*Content-item*/
     .content-item{
         margin: 8px 0;
+    }
+
+
+    /*Search col*/
+    .search_col{
+        margin-bottom: 10px;
     }
 }
 
