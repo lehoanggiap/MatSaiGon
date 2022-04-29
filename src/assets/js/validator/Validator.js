@@ -12,9 +12,7 @@ function Validator(options){
         }
     }
     let submitBtn = formElement.querySelector(options.submitBtn)
-    var timeOut = {
-        'timeOutMess': 0,
-    }
+    var timeOut = 0
     if(formElement){
         
         formElement.onsubmit = function(e){
@@ -25,34 +23,38 @@ function Validator(options){
                 if(validateRule){
                     let inputElements = formElement.querySelectorAll(rule.selector)
                     Array.from(inputElements).forEach(inputElement => {
-                        if(inputElement){
-                            var errorMessage = ''
-                            switch(inputElement.type){
-                                case 'radio':
-                                case 'checkbox':
-                                    errorMessage = rule.test(
-                                        formElement.querySelector(rule.selector + ":checked")
-                                    );
-                                    break;
-                                default:
-                                    errorMessage = rule.test(inputElement.value); 
-                            }
-                            if(errorMessage){
-                                var formGroup = getParent(inputElement, options.formGroupSelector)
-                                var errorElement = formGroup.querySelector(options.errorSelector)
-                                errorElement.innerHTML = `<i class="fas fa-exclamation-triangle"></i>
-                                                          ${errorMessage}`  
-                                
-                                setTimeout(function () {
-                                    errorElement.classList.add('active');
-                                },1)
-                                
-                                // timeOut['timeOutMess'] = setTimeout(function(){
-                                //     console.log(timeOut['timeOutMess'])
-                                //     errorElement.classList.remove('active');
-                                // }, 3000)  
-                                                      
-                                validateRule = false;
+                        if(validateRule){
+                            if(inputElement){
+                                var errorMessage = ''
+                                switch(inputElement.type){
+                                    case 'radio':
+                                    case 'checkbox':
+                                        errorMessage = rule.test(
+                                            formElement.querySelector(rule.selector + ":checked")
+                                        );
+                                        break;
+                                    case 'date':
+                                        errorMessage = rule.test(inputElement)
+                                        break;    
+                                    default:
+                                        errorMessage = rule.test(inputElement.value); 
+                                }
+                                if(errorMessage){
+                                    var formGroup = getParent(inputElement, options.formGroupSelector)
+                                    var errorElement = formGroup.querySelector(options.errorSelector)
+                                    errorElement.innerHTML = `<i class="fas fa-exclamation-triangle"></i>
+                                                              ${errorMessage}`  
+                                    
+                                    setTimeout(function () {
+                                        errorElement.classList.add('active');
+                                    },1)
+                                    
+                                    timeOut = setTimeout(function(){
+                                        errorElement.classList.remove('active');
+                                    }, 3000)  
+                                                          
+                                    validateRule = false;
+                                }
                             }
                         }
                     })
@@ -111,19 +113,16 @@ function Validator(options){
         formElement.onclick = function(e){
            var errorElement = formElement.querySelector(options.errorSelector + ".active")
            if(errorElement){
-               console.log(timeOut['timeOutMess'])
-               clearTimeout(timeOut['timeOutMess'])
+               if(timeOut){
+                clearTimeout(timeOut)
+               }
                errorElement.classList.remove("active")
            }
         }
 
-        submitBtn.onclick = function(e){
-           var errorElement = formElement.querySelector(options.errorSelector + ".active")
-           if(errorElement) {
-               errorElement.classList.remove("active")
-           }
-           e.stopPropagation()
-        }
+        // submitBtn.onclick = function(e){
+        //    e.stopPropagation()
+        // }
         
     }
 
@@ -138,6 +137,25 @@ Validator.isRequired = function(selector, message){
             return value? undefined : message || 'Vui lòng điền vào trường này'
         }
     };
+}
+
+Validator.isDate = function(selector, message){
+    return{
+        selector: selector,
+        test: function(input){
+            let value = input.value
+            let badInput = input.validity.badInput
+            if(!value){
+                if(!badInput){
+                    return message? message : 'Vui lòng điền vào trường này'
+                }else{
+                    return message? message : input.validationMessage
+                }
+            }else{
+                return undefined;
+            }
+        }
+    }
 }
 
 Validator.isEmail = function(selector, message){
@@ -181,9 +199,10 @@ Validator.isConfirmed = function(selector, getConfirmValue, message){
 Validator.minDate = function(selector, message){
     return{
         selector: selector,
-        test: function(value){
+        test: function(input){
+            let value = input.value
             let inputDate = new Date(value).getTime();
-            let minDate = handleDate.getDateFromNow(1)
+            let minDate = handleDate.getDateFromNow(2)
             let maxDate = handleDate.getDateFromNow(30)
             if(inputDate < minDate || inputDate > maxDate){
                 return `Chọn ngày nằm trong khoảng từ <b>${handleDate.parseDate(minDate)}</b> 

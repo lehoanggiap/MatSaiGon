@@ -26,7 +26,7 @@ const options = {
         Validator.isPhone('#form__phone-input'),
         Validator.isRequired('#form__email-input'),
         Validator.isEmail('#form__email-input'),
-        Validator.isRequired('#booking-form__date-input'),
+        Validator.isDate('#booking-form__date-input'),
         Validator.minDate('#booking-form__date-input'),
         Validator.isRequired('#booking-form__time-input'),
         Validator.minTime('#booking-form__time-input')

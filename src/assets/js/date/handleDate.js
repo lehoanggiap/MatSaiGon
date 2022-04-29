@@ -5,8 +5,9 @@ export class handleDate{
 
     static getDateFromNow(n){
         let today = new Date()
-        let dayMilliseconds = 1000 * 60 * 60 * 24; 
-        return today.getTime() + n*dayMilliseconds
+        let dayMilliseconds = 1000 * 60 * 60 * 24
+        let substract = today.getTime()%dayMilliseconds
+        return (today.getTime() - substract) + n*dayMilliseconds
     }
 
     static parseDate(miliseconds){
