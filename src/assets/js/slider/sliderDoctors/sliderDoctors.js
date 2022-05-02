@@ -19,13 +19,16 @@ class sliderDoctors extends sliderService{
         if(activeBtn){
             //Trường hợp nếu chỉ có 1 slide thì k cần render ra bottom btn slider
             activeBtn.classList.remove('active')
+        }
+
+        if(this.bottomSlideBtn.childNodes.length > 0){
             if(this.currentIndex <= this.nb_slides){
                 this.bottomSlideBtn.childNodes[0].classList.add('active')
             }else if(this.currentIndex > this.nb_slides){
                 this.bottomSlideBtn.childNodes[this.currentIndex - this.nb_slides].classList.add('active')
             }
-            
         }
+        
     }
 
     loadCurrentSlide(){
@@ -76,10 +79,13 @@ class sliderDoctors extends sliderService{
             }
         }
 
-        this.bottomSlideBtn.childNodes.forEach(function (btn, index){
+        this.bottomSlideBtn.childNodes.forEach(function (btn, i){
             btn.onclick = function(e) {
-                if(index > 0){
-                    index += app.nb_slides
+                let index = 0
+                if(i > 0){
+                    index = i + app.nb_slides
+                }else{
+                    index = i
                 }
                 app.currentIndex = index;
                 app.loadCurrentSlide()

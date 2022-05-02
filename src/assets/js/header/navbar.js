@@ -43,7 +43,7 @@ class navBar{
                 navbar_list.style.height = app.calcHeight(navbar_list) + 'px'
                 setTimeout(function(){
                     navbar_list.style.height = 0
-                }, 5)
+                }, 1)
             }else{
                 navbar_list.style.height = 0
                 if(outernav){

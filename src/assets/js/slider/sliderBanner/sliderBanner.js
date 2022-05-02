@@ -107,10 +107,12 @@ class sliderBanner{
         }
 
         nextBtn.onclick = function(e) {
+            e.preventDefault()
             resetTimer(app, app.setTimeOutLoadNext)
         }
 
         prevBtn.onclick = function (e) {
+            e.preventDefault()
             resetTimer(app, app.setTimeOutLoadPrev)
         }
 
